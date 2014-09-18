@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" version="2.5.5">
+	<name>DJ-ImageSlider Package</name>
+	<packagename>dj-imageslider</packagename>
+	<creationDate>August 2012</creationDate>
+	<author>DJ-Extensions.com</author>
+	<copyright>Copyright (C) 2012 DJ-Extensions.com, All rights reserved.</copyright>
+	<license> http://www.gnu.org/licenses GNU/GPL</license>
+	<authorEmail>contact@dj-extensions.com</authorEmail>
+	<authorUrl>http://dj-extensions.com</authorUrl>
+	<version>2.2.2</version>
+	<url>http://dj-extensions.com</url>
+	<packager></packager>
+	<packagerurl></packagerurl>
+	<description><![CDATA[
+		<style> #right-text {font-family:Arial, Helvetica, sans-serif;	font-size:11px;	} #right-text a:link, #right-text a:visited {color:#4991c1;font-weight:bold; font-size: 13px;} #right-text a:hover {text-decoration:underline;}	#right-text h2 {color:#fa9539;text-transform:uppercase;	font-size:16px;	padding:0;	margin:2px 0;}	#right-text p {padding:0;margin:4px 0;}	#left-logo {float:left;width:270px;height:120px;display:block;} #left-logo img {margin: 40px 20px;} #right-text {float:left;width:400px;}</style>
+	
+		<div id="left-logo">
+			<a target="_blank" href="http://dj-extensions.com"><img src="http://new.dj-extensions.com/templates/dj-extensions/images/logo.png" alt="DJ-Extensions.com" /></a>
+		</div>
+		
+		<div id="right-text">
+			<h2>Thank you for installing DJ-ImageSlider!</h2>
+			<p>The DJ-ImageSlider extension allows you to display image slides with title and short description linked to any menu item, article or custom url address.</p>
+			<p>If you want to learn how to use DJ-ImageSlider please read <a target="_blank" href="http://dj-extensions.com/documentation">Documentation</a> and search our <a target="_blank" href="http://dj-extensions.com/forum">Support Forum</a><br /><br />Check out our other extensions at <a target="_blank" href="http://dj-extensions.com">DJ-Extensions.com</a></p>
+		</div>
+	
+		]]></description>
+	<files>
+	        <file type="component" client="admin" id="com_djimageslider">com_djimageslider.zip</file>
+	        <file type="module" client="site" id="mod_djimageslider">mod_djimageslider.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="DJ-ImageSlider Package">http://dj-extensions.com/updates/djimageslider.xml</server>
+	</updateservers>
+</extension>

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.6" type="plugin" group="content" method="upgrade">
+	<name>PLG_JSMALLFIB_TITLE</name>
+	<author>Enrico Sandoli</author>
+	<creationDate>March 2012</creationDate>
+	<copyright>Copyright (c) 2009-2013 Enrico Sandoli. All rights reserved.</copyright>
+	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
+	<authorUrl>http://www.smallerik.com</authorUrl>
+	<version>1.3.4.pro</version>
+	<description>PLG_JSMALLFIB_DESC</description>
+
+	<files>
+		<filename plugin="jsmallfib">jsmallfib.php</filename>
+		<folder>language</folder>
+		<folder>media</folder>
+		<folder>swfupload</folder>
+	</files>
+
+	<!-- UPDATE SERVER INFO 
+	<updateservers>
+		<server type="extension" priority="1" name="Jsmallfib Update Site">http://www.smallerik.com/JOOMLA_UPDATE_SERVER/jsmallfib.xml</server>
+	</updateservers>
+        -->
+        
+	<config>
+            <fields name="params">
+    
+		<!-- REPOSITORY OPTIONS -->
+		<fieldset name="REPOSITORY_OPTIONS">
+
+                    <field name="default_path" type="text" size ="60" default="jsmallfib_top" label="DEFAULT_PATH" description="DEFAULT_PATH_DESC" />
+			
+                    <field name="is_path_relative" type="list" default="1" label="IS_PATH_RELATIVE" description="IS_PATH_RELATIVE_DESC">
+            		<option value="0">USE_ABSOLUTE_PATH</option>
+            		<option value="1">USE_RELATIVE_PATH</option>
+                    </field>
+			
+                    <field name="default_path_override_enabled" type="radio" default="0" label="DEFAULT_PATH_OVERRIDE_ENABLED" description="DEFAULT_PATH_OVERRIDE_ENABLED_DESC">
+            		<option value="0">JSMALL_NO</option>
+            		<option value="1">JSMALL_YES</option>
+                    </field>
+
+        	</fieldset>
+	
+		<!-- PERMISSIONS OPTIONS -->
+		<fieldset name="PERMISSIONS_OPTIONS">
+                    
+                    <field type="spacer" label="PERMISSION_OPTIONS_TITLE_DEFAULT" />
+
+                    <field name="default_visitor_access_rights" type="list" default="0" label="DEFAULT_VISITOR_ACCESS_RIGHTS" description="DEFAULT_VISITOR_ACCESS_RIGHTS_DESC">
+        	    	<option value="0">MAY_NOT_ACCESS_REPOSITORY_AT_ALL</option>
+            		<option value="1">CAN_ONLY_NAVIGATE_THE_REPOSITORY_NO_DOWNLOAD</option>
+            		<option value="2">CAN_ONLY_NAVIGATE_THE_REPOSITORY_AND_DOWNLOAD</option>
+	    		<option value="3">MAY_CREATE_FOLDERS_AND_UPLOAD_FILES</option>
+	    		<option value="4">MAY_DELETE_FILES_BUT_NOT_FOLDERS</option>
+	    		<option value="5">MAY_DELETE_FILES_AND_EMPTY_FOLDERS</option>
+	    		<option value="6">MAY_VIEW_LOGS</option>
+                    </field>
+        	
+                    <field name="default_reguser_access_rights" type="list" default="4" label="DEFAULT_REGISTERED_USER_ACCESS_RIGHTS" description="DEFAULT_REGISTERED_USER_ACCESS_RIGHTS_DESC">
+        	    	<option value="0">MAY_NOT_ACCESS_REPOSITORY_AT_ALL</option>
+            		<option value="1">CAN_ONLY_NAVIGATE_THE_REPOSITORY_NO_DOWNLOAD</option>
+            		<option value="2">CAN_ONLY_NAVIGATE_THE_REPOSITORY_AND_DOWNLOAD</option>
+	    		<option value="3">MAY_CREATE_FOLDERS_AND_UPLOAD_FILES</option>
+	    		<option value="4">MAY_DELETE_FILES_BUT_NOT_FOLDERS</option>
+	    		<option value="5">MAY_DELETE_FILES_AND_EMPTY_FOLDERS</option>
+	    		<option value="6">MAY_VIEW_LOGS</option>
+                    </field>
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="PERMISSION_OPTIONS_TITLE_USERBOUND" />
+
+                    <field name="userbound_prefix" type="text" size ="40" default="Personal area for user ID" label="USERBOUND_PREFIX" description="USERBOUND_PREFIX_DESC" />
+			
+                    <field name="userbound_prefix_use" type="radio" default="1" label="USERBOUND_PREFIX_USE" description="USERBOUND_PREFIX_USE_DESC">
+        	    	<option value="0">JSMALL_NO</option>
+        	    	<option value="1">JSMALL_YES</option>
+                    </field>
+			
+                    <field name="userbound_parameter" type="list" default="0" label="USERBOUND_PARAMETER" description="USERBOUND_PARAMETER_DESC">
+        	    	<option value="0">USER_ID</option>
+        	    	<option value="1">USER_NAME</option>
+        	    	<option value="2">USER_USERNAME</option>
+        	    	<option value="3">USER_ID_USERNAME</option>
+                    </field>
+			
+                    <field name="userbound_suffix" type="text" size ="40" default="" label="USERBOUND_SUFFIX" description="USERBOUND_SUFFIX_DESC" />
+			
+                    <field name="default_personal_access_rights" type="list" default="5" label="DEFAULT_PERSONAL_ACCESS_RIGHTS" description="DEFAULT_PERSONAL_ACCESS_RIGHTS_DESC">
+        	    	<option value="0">MAY_NOT_ACCESS_REPOSITORY_AT_ALL</option>
+            		<option value="1">CAN_ONLY_NAVIGATE_THE_REPOSITORY_NO_DOWNLOAD</option>
+            		<option value="2">CAN_ONLY_NAVIGATE_THE_REPOSITORY_AND_DOWNLOAD</option>
+	    		<option value="3">MAY_CREATE_FOLDERS_AND_UPLOAD_FILES</option>
+	    		<option value="4">MAY_DELETE_FILES_BUT_NOT_FOLDERS</option>
+	    		<option value="5">MAY_DELETE_FILES_AND_EMPTY_FOLDERS</option>
+	    		<option value="6">MAY_VIEW_LOGS</option>
+                    </field>
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="PERMISSION_OPTIONS_TITLE_GROUPBOUND" />
+
+                    <field name="groupbound_prefix" type="text" size ="40" default="Shared area for group ID" label="GROUPBOUND_PREFIX" description="GROUPBOUND_PREFIX_DESC" />
+			
+                    <field name="groupbound_prefix_use" type="radio" default="1" label="GROUPBOUND_PREFIX_USE" description="GROUPBOUND_PREFIX_USE_DESC">
+            		<option value="0">JSMALL_NO</option>
+            		<option value="1">JSMALL_YES</option>
+                    </field>
+			
+                    <field name="groupbound_parameter" type="list" default="0" label="GROUPBOUND_PARAMETER" description="GROUPBOUND_PARAMETER_DESC">
+            		<option value="0">GROUP_ID</option>
+            		<option value="1">GROUP_TITLE</option>
+                    </field>
+			
+                    <field name="groupbound_suffix" type="text" size ="40" default="" label="GROUPBOUND_SUFFIX" description="GROUPBOUND_SUFFIX_DESC" />
+			
+                    <field name="default_group_access_rights" type="list" default="5" label="DEFAULT_GROUP_ACCESS_RIGHTS" description="DEFAULT_GROUP_ACCESS_RIGHTS_DESC">
+        	    	<option value="0">MAY_NOT_ACCESS_REPOSITORY_AT_ALL</option>
+            		<option value="1">CAN_ONLY_NAVIGATE_THE_REPOSITORY_NO_DOWNLOAD</option>
+            		<option value="2">CAN_ONLY_NAVIGATE_THE_REPOSITORY_AND_DOWNLOAD</option>
+	    		<option value="3">MAY_CREATE_FOLDERS_AND_UPLOAD_FILES</option>
+	    		<option value="4">MAY_DELETE_FILES_BUT_NOT_FOLDERS</option>
+	    		<option value="5">MAY_DELETE_FILES_AND_EMPTY_FOLDERS</option>
+	    		<option value="6">MAY_VIEW_LOGS</option>
+                    </field>
+
+                    <field name="pick_usergroup_lowest_rights" type="radio" default="1" label="PICK_USERGROUP_LOWEST_RIGHTS" description="PICK_USERGROUP_LOWEST_RIGHTS_DESC">
+            		<option value="0">JSMALL_NO</option>
+            		<option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="PERMISSION_OPTIONS_TITLE_OTHER" />
+
+                    <field name="unzip_allow" type="radio" default="1" label="UNZIP_ALLOW" description="UNZIP_ALLOW_DESC">
+            		<option value="0">JSMALL_NO</option>
+            		<option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="allow_file_archiving" type="radio" default="1" label="ALLOW_FILE_ARCHIVING" description="ALLOW_FILE_ARCHIVING_DESC">
+        		<option value="0">JSMALL_NO</option>
+        		<option value="1">JSMALL_YES</option>
+                    </field>
+	
+                    <field name="filter_list_allow" type="radio" default="1" label="FILTER_LIST_ALLOW" description="FILTER_LIST_ALLOW_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+        	</fieldset>
+	
+		<!-- DISPLAY OPTIONS -->
+		<fieldset name="DISPLAY_OPTIONS">
+
+                    <field type="spacer" label="DISPLAY_OPTIONS_TITLE_GENERAL" />
+                    
+                    <field name="hidden_files" type="textarea" cols="30" rows="3" default=".htaccess, .ftpquota, *.php, index.html" label="HIDDEN_FILES" description="HIDDEN_FILES_DESC" />
+                    <field name="hidden_folders" type="textarea" cols="30" rows="3" default="" label="HIDDEN_FOLDERS" description="HIDDEN_FOLDERS_DESC" />
+
+                    <field name="encode_to_utf8" type="radio" default="1" label="ENCODE_TO_UTF8" description="ENCODE_TO_UTF8_DESC">
+        		<option value="0">JSMALL_NO</option>
+        		<option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="is_direct_link_to_files" type="list" default="0" label="IS_DIRECT_LINK_TO_FILES" description="IS_DIRECT_LINK_TO_FILES_DESC">
+        		<option value="0">DIRECT_LINK_TO_FILES_NO</option>
+                        <option value="1">DIRECT_LINK_TO_FILES_SAME_WINDOW</option>
+                        <option value="2">DIRECT_LINK_TO_FILES_NEW_WINDOW</option>
+                    </field>
+
+                    <field name="display_currentdirectory" type="radio" default="1" label="DISPLAY_CURRENTDIRECTORY" description="DISPLAY_CURRENTDIRECTORY_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="show_help_link" type="radio" default="1" label="SHOW_HELP_LINK" description="SHOW_HELP_LINK_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="allow_upload_box_hiding" type="radio" default="1" label="ALLOW_UPLOAD_BOX_HIDING" description="ALLOW_UPLOAD_BOX_HIDING_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="thumbsize" type="text" size ="4" default="60" label="THUMBSIZE" description="THUMBSIZE_DESC" />
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="DISPLAY_OPTIONS_TITLE_SIZE_AND_DATE" />
+
+                    <field name="display_filesize" type="radio" default="1" label="DISPLAY_FILESIZE" description="DISPLAY_FILESIZE_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+			
+                    <field name="filesize_separator" type="list" default="." label="FILESIZE_SEPARATOR" description="FILESIZE_SEPARATOR_DESC">
+                        <option value=".">DOT</option>
+                        <option value=",">COMMA</option>
+                    </field>
+
+                    <field name="display_filedate" type="radio" default="1" label="DISPLAY_FILEDATE" description="DISPLAY_FILEDATE_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="date_format" type="list" default="dd_mm_yyyy_slashsep" label="DATE_FORMAT" description="DATE_FORMAT_DESC">
+        		<option value="dd_mm_yyyy_dashsep">dd-mm-yyyy</option>
+        		<option value="dd_mm_yyyy_pointsep">dd.mm.yyyy</option>
+	    		<option value="dd_mm_yyyy_slashsep">dd/mm/yyyy</option>
+                        <option value="yyyy_mm_dd_dashsep">yyyy-mm-dd</option>
+                        <option value="yyyy_mm_dd_pointsep">yyyy.mm.dd</option>
+	    		<option value="yyyy_mm_dd_slashsep">yyyy/mm/dd</option>
+	    		<option value="mm_dd_yyyy_dashsep">mm-dd-yyyy</option>
+	    		<option value="mm_dd_yyyy_pointsep">mm.dd.yyyy</option>
+	    		<option value="mm_dd_yyyy_slashsep">mm/dd/yyyy</option>
+                    </field>
+			
+                    <field name="display_filetime" type="radio" default="1" label="DISPLAY_FILETIME" description="DISPLAY_FILETIME_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+			
+                    <field name="display_seconds" type="radio" default="1" label="DISPLAY_SECONDS" description="DISPLAY_SECONDS_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="DISPLAY_OPTIONS_TITLE_SORTING" />
+
+                    <field name="default_sort_by" type="radio" default="name" label="DEFAULT_SORT_BY" description="DEFAULT_SORT_BY_DESC">
+                        <option value="name">NAME</option>
+                        <option value="size">SIZE</option>
+                        <option value="changed">CHANGED</option>
+                    </field>
+			
+                    <field name="default_sort_as" type="radio" default="asc" label="DEFAULT_SORT_AS" description="DEFAULT_SORT_AS_DESC">
+                        <option value="asc">ASCENDING</option>
+                        <option value="desc">DESCENDING</option>
+                    </field>
+
+                    <field name="default_sort_nat" type="radio" default="1" label="DEFAULT_SORT_NAT" description="DEFAULT_SORT_NAT_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                </fieldset>
+	
+		<!-- UPLOAD OPTIONS -->
+		<fieldset name="UPLOAD_OPTIONS">
+
+                    <field name="upload_type" type="radio" default="SWFUPLOAD" label="UPLOAD_TYPE" description="UPLOAD_TYPE_DESC">
+                        <option value="HTMLUPLOAD">HTMLUPLOAD</option>
+                        <option value="SWFUPLOAD">SWFUPLOAD</option>
+                    </field>
+	
+                    <field name="swfupload_file_size_limit_number" type="text" size="15" default="0" label="SWFUPLOAD_FILE_SIZE_LIMIT_NUMBER" description="SWFUPLOAD_FILE_SIZE_LIMIT_NUMBER_DESC" />
+		
+                    <field name="swfupload_file_size_limit_unit" type="list" default="KB" label="SWFUPLOAD_FILE_SIZE_LIMIT_UNIT" description="SWFUPLOAD_FILE_SIZE_LIMIT_UNIT_DESC">
+                        <option value="KB">KB</option>
+                        <option value="MB">MB</option>
+                        <option value="GB">GB</option>
+                    </field>
+	
+                    <field name="swfupload_button_action" type="list" default="1" label="SWFUPLOAD_BUTTON_ACTION" description="SWFUPLOAD_BUTTON_ACTION_DESC">
+                        <option value="0">UPLOAD_SINGLE_FILE</option>
+                        <option value="1">UPLOAD_MULTIPLE_FILES</option>
+                    </field>
+	
+                    <field name="swfupload_resolve_conflicts" type="list" default="0" label="SWFUPLOAD_RESOLVE_CONFLICTS" description="SWFUPLOAD_RESOLVE_CONFLICTS_DESC">
+                        <option value="0">SWFUPLOAD_RESOLVE_CONFLICT_OPTION_ASK</option>
+                        <option value="1">SWFUPLOAD_RESOLVE_CONFLICT_OPTION_CANCEL</option>
+                        <option value="2">SWFUPLOAD_RESOLVE_CONFLICT_OPTION_OVERRIDE</option>
+                        <option value="3">SWFUPLOAD_RESOLVE_CONFLICT_OPTION_ARCHIVE</option>
+                    </field>
+	
+                    <field name="swfupload_file_upload_limit" type="text" size="15" default="100" label="SWFUPLOAD_FILE_UPLOAD_LIMIT" description="SWFUPLOAD_FILE_UPLOAD_LIMIT_DESC" />
+                    <field name="swfupload_file_types" type="textarea" cols="25" rows="3" default="*.*" label="SWFUPLOAD_FILE_TYPES" description="SWFUPLOAD_FILE_TYPES_DESC" />
+                    <field name="swfupload_file_types_description" type="text" size="30" default="All files" label="SWFUPLOAD_FILE_TYPES_DESCRIPTION" description="SWFUPLOAD_FILE_TYPES_DESCRIPTION_DESC" />
+
+        	<!--field name="split_upload_section" type="radio" default="0" label="SPLIT_UPLOAD_SECTION" description="SPLIT_UPLOAD_SECTION_DESC">
+            	<option value="0">JSMALL_NO</option>
+            	<option value="1">JSMALL_YES</option>
+			</field-->
+		</fieldset>
+
+
+		<!-- LOOK & FEEL OPTIONS -->
+		<fieldset name="LOOKANDFEEL_OPTIONS">
+
+                    <field type="spacer" label="LOOKANDFEEL_OPTIONS_TITLE_GENERAL" />
+
+                    <field name="table_width" type="text" size ="15" default="680" label="MAIN_DISPLAY_WIDTH" description="MAIN_DISPLAY_WIDTH_DESC" />
+                    <field name="box_distance" type="text" size ="15" default="10" label="BOX_DISTANCE" description="BOX_DISTANCE_DESC" />
+
+                    <field name="js_iconset" type="list" default="smallerik" label="JS_ICONSET" description="JS_ICONSET_DESC">
+                        <option value="original">JS_ICONSET_ORIGINAL</option>
+                        <option value="smallerik">JS_ICONSET_SMALLERIK</option>
+                    </field>
+
+                    <field name="border_radius" type="text" size ="15" default="5" label="BORDER_RADIUS" description="BORDER_RADIUS_DESC" />
+                
+                    <field name="use_box_shadow" type="radio" default="1" label="USE_BOX_SHADOW" description="USE_BOX_SHADOW_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+                    <field name="shadow_width" type="text" size ="15" default="3" label="SHADOW_WIDTH" description="SHADOW_WIDTH_DESC" />
+                    <field name="shadow_blur" type="text" size ="15" default="5" label="SHADOW_BLUR" description="SHADOW_BLUR_DESC" />
+                    <field name="shadow_color" type="text" size ="15" default="100" label="SHADOW_COLOR" description="SHADOW_COLOR_DESC" />
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOOKANDFEEL_OPTIONS_TITLE_FILES" />
+                        
+                    <field name="header_bgcolor" type="text" size ="15" default="FFFFFF" label="HEADER_BGCOLOR" description="HEADER_BGCOLOR_DESC" />
+                    
+                    <field name="js_icon_width" type="text" size ="15" default="32" label="JS_ICON_WIDTH" description="JS_ICON_WIDTH_DESC" />
+                    <field name="js_icon_padding" type="text" size ="15" default="12" label="JS_ICON_PADDING" description="JS_ICON_PADDING_DESC" />
+
+                    <field name="min_row_height" type="text" size ="15" default="40" label="ROW_HEIGHT" description="ROW_HEIGHT_DESC" />
+			
+                    <field name="highlighted_color" type="text" size ="15" default="FFD" label="HIGHLIGHTED_COLOR" description="HIGHLIGHTED_COLOR_DESC" />
+			
+                    <field name="oddrows_color" type="text" size ="15" default="F9F9F9" label="ODDROWS_COLOR" description="ODDROWS_COLOR_DESC" />
+			
+                    <field name="evenrows_color" type="text" size ="15" default="FFFFFF" label="EVENROWS_COLOR" description="EVENROWS_COLOR_DESC" />
+
+                    <field name="framebox_bgcolor" type="text" size ="15" default="FFFFFF" label="FRAMEBOX_BGCOLOR" description="FRAMEBOX_BGCOLOR_DESC" />
+			
+                    <field name="framebox_linecolor" type="text" size ="15" default="CDD2D6" label="FRAMEBOX_LINECOLOR" description="FRAMEBOX_LINECOLOR_DESC" />
+			
+                    <field name="framebox_border" type="text" size ="15" default="1" label="FRAMEBOX_BORDER" description="FRAMEBOX_BORDER_DESC" />
+			
+                    <field name="framebox_linetype" type="list" default="solid" label="FRAMEBOX_LINETYPE" description="FRAMEBOX_LINETYPE_DESC">
+                        <option value="solid">SOLID</option>
+                        <option value="dotted">DOTTED</option>
+                        <option value="dashed">DASHED</option>
+                        <option value="double">DOUBLE</option>
+                        <option value="groove">GROOVE</option>
+                        <option value="ridge">RIDGE</option>
+                        <option value="inset">INSET</option>
+                        <option value="outset">OUTSET</option>
+                    </field>
+	
+                    <field name="line_bgcolor" type="text" size ="15" default="CDD2D6" label="LINE_BGCOLOR" description="LINE_BGCOLOR_DESC" />
+			
+                    <field name="line_height" type="text" size ="15" default="1" label="LINE_HEIGHT" description="LINE_HEIGHT_DESC" />
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOOKANDFEEL_OPTIONS_TITLE_ACTIONS" />
+
+                    <field name="uploadbox_bgcolor" type="text" size ="15" default="FFFFFF" label="UPLOADBOX_BGCOLOR" description="UPLOADBOX_BGCOLOR_DESC" />
+			
+                    <field name="uploadbox_linecolor" type="text" size ="15" default="CDD2D6" label="UPLOADBOX_LINECOLOR" description="UPLOADBOX_LINECOLOR_DESC" />
+			
+                    <field name="uploadbox_border" type="text" size ="15" default="1" label="UPLOADBOX_BORDER" description="UPLOADBOX_BORDER_DESC" />
+			
+                    <field name="uploadbox_linetype" type="list" default="solid" label="UPLOADBOX_LINETYPE" description="UPLOADBOX_LINETYPE_DESC">
+                        <option value="solid">SOLID</option>
+                        <option value="dotted">DOTTED</option>
+                        <option value="dashed">DASHED</option>
+                        <option value="double">DOUBLE</option>
+                        <option value="groove">GROOVE</option>
+                        <option value="ridge">RIDGE</option>
+                        <option value="inset">INSET</option>
+                        <option value="outset">OUTSET</option>
+                    </field>
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOOKANDFEEL_OPTIONS_TITLE_INPUTBOXES" />
+
+                    <field name="inputbox_bgcolor" type="text" size ="15" default="FFFFFF" label="INPUTBOX_BGCOLOR" description="INPUTBOX_BGCOLOR_DESC" />
+			
+                    <field name="inputbox_linecolor" type="text" size ="15" default="CDD2D6" label="INPUTBOX_LINECOLOR" description="INPUTBOX_LINECOLOR_DESC" />
+			
+                    <field name="inputbox_border" type="text" size ="15" default="1" label="INPUTBOX_BORDER" description="INPUTBOX_BORDER_DESC" />
+			
+                    <field name="inputbox_linetype" type="list" default="solid" label="INPUTBOX_LINETYPE" description="INPUTBOX_LINETYPE_DESC">
+                        <option value="solid">SOLID</option>
+                        <option value="dotted">DOTTED</option>
+                        <option value="dashed">DASHED</option>
+                        <option value="double">DOUBLE</option>
+                        <option value="groove">GROOVE</option>
+                        <option value="ridge">RIDGE</option>
+                        <option value="inset">INSET</option>
+                        <option value="outset">OUTSET</option>
+                    </field>
+	
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOOKANDFEEL_OPTIONS_TITLE_ALERTBOXES" />
+
+                    <field name="errorbox_bgcolor" type="text" size ="15" default="FFE4E1" label="ERRORBOX_BGCOLOR" description="ERRORBOX_BGCOLOR_DESC" />
+			
+                    <field name="errorbox_linecolor" type="text" size ="15" default="F8A097" label="ERRORBOX_LINECOLOR" description="ERRORBOX_LINECOLOR_DESC" />
+			
+                    <field name="errorbox_border" type="text" size ="15" default="1" label="ERRORBOX_BORDER" description="ERRORBOX_BORDER_DESC" />
+			
+                    <field name="errorbox_linetype" type="list" default="solid" label="ERRORBOX_LINETYPE" description="ERRORBOX_LINETYPE_DESC">
+                        <option value="solid">SOLID</option>
+                        <option value="dotted">DOTTED</option>
+                        <option value="dashed">DASHED</option>
+                        <option value="double">DOUBLE</option>
+                        <option value="groove">GROOVE</option>
+                        <option value="ridge">RIDGE</option>
+                        <option value="inset">INSET</option>
+                        <option value="outset">OUTSET</option>
+                    </field>
+	
+                    <field name="successbox_bgcolor" type="text" size ="15" default="E7F6DC" label="SUCCESSBOX_BGCOLOR" description="SUCCESSBOX_BGCOLOR_DESC" />
+                    <field name="successbox_linecolor" type="text" size ="15" default="66B42D" label="SUCCESSBOX_LINECOLOR" description="SUCCESSBOX_LINECOLOR_DESC" />
+                    <field name="successbox_border" type="text" size ="15" default="1" label="SUCCESSBOX_BORDER" description="SUCCESSBOX_BORDER_DESC" />
+                    <field name="successbox_linetype" type="list" default="solid" label="SUCCESSBOX_LINETYPE" description="SUCCESSBOX_LINETYPE_DESC">
+                        <option value="solid">SOLID</option>
+                        <option value="dotted">DOTTED</option>
+                        <option value="dashed">DASHED</option>
+                        <option value="double">DOUBLE</option>
+                        <option value="groove">GROOVE</option>
+                        <option value="ridge">RIDGE</option>
+                        <option value="inset">INSET</option>
+                        <option value="outset">OUTSET</option>
+                    </field>
+
+		</fieldset>
+
+		<!-- LOGGING OPTIONS -->
+		<fieldset name="LOGGING_OPTIONS">
+
+                    <field type="spacer" label="LOGGING_OPTIONS_TITLE_LOGS" />
+
+                    <field name="log_uploads" type="radio" default="0" label="LOG_UPLOADS" description="LOG_UPLOADS_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_downloads" type="radio" default="0" label="LOG_DOWNLOADS" description="LOG_DOWNLOADS_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_removedfolders" type="radio" default="0" label="LOG_REMOVEDFOLDERS" description="LOG_REMOVEDFOLDERS_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_removedfiles" type="radio" default="0" label="LOG_REMOVEDFILES" description="LOG_REMOVEDFILES_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_restoredfiles" type="radio" default="0" label="LOG_RESTOREDFILES" description="LOG_RESTOREDFILES_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_newfolders" type="radio" default="0" label="LOG_NEWFOLDERS" description="LOG_NEWFOLDERS_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_newfoldernames" type="radio" default="0" label="LOG_NEWFOLDERNAMES" description="LOG_NEWFOLDERNAMES_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_newfilenames" type="radio" default="0" label="LOG_NEWFILENAMES" description="LOG_NEWFILENAMES_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_unzippedfiles" type="radio" default="0" label="LOG_UNZIPPEDFILES" description="LOG_UNZIPPEDFILES_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                        <option value="2">AND_EMAIL</option>
+                    </field>
+			
+                    <field name="log_highlighted_color" type="text" size ="15" default="FF6600" label="LOG_HIGHLIGHTED_COLOR" description="LOG_HIGHLIGHTED_COLOR_DESC" />
+
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOGGING_OPTIONS_TITLE_EMAIL" />
+
+                    <field name="log_email_from" type="text" size ="50" default="" label="LOG_EMAIL_FROM" description="LOG_EMAIL_FROM_DESC" />
+                    <field name="log_email_from_string" type="text" size ="50" default="Jsmallfib Log Alert" label="LOG_EMAIL_FROM_STRING" description="LOG_EMAIL_FROM_STRING_DESC" />
+                    <field name="log_email_to" type="text" size ="50" default="" label="LOG_EMAIL_TO" description="LOG_EMAIL_TO_DESC" />
+                    <field name="log_email_subject" type="text" size ="50" default="Jsmallfib Log Alert" label="LOG_EMAIL_SUBJECT" description="LOG_EMAIL_SUBJECT_DESC" />
+		
+                    <field type="spacer" hr="true" />
+                    <field type="spacer" label="LOGGING_OPTIONS_TITLE_LOG_ADVANCED" />
+
+                    <field name="mail_in_html_mode" type="radio" default="0" label="MAIL_IN_HTML_MODE" description="MAIL_IN_HTML_MODE_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+                    <field name="log_type" type="list" default="1" label="LOG_TYPE" description="LOG_TYPE_DESC">
+                        <option value="0">LOG_TYPE_TEXT</option>
+                        <option value="1">LOG_TYPE_JSON</option>
+                        <!--option value="2">LOG_TYPE_RDBM</option-->
+                    </field>
+                    <field name="log_file_consolidation" type="list" default="1" label="LOG_FILE_CONSOLIDATION" description="LOG_FILE_CONSOLIDATION_DESC">
+                        <option value="0">LOG_FILE_CONSOLIDATION_SINGLE</option>
+                        <option value="1">LOG_FILE_CONSOLIDATION_MULTIPLE</option>
+                    </field>
+                    <field name="default_log_path" type="text" size ="60" default="logs" label="DEFAULT_LOG_PATH" description="DEFAULT_LOG_PATH_DESC" />
+                    <field name="is_log_path_relative" type="list" default="1" label="IS_LOG_PATH_RELATIVE" description="IS_LOG_PATH_RELATIVE_DESC">
+            		<option value="0">USE_ABSOLUTE_PATH</option>
+            		<option value="1">USE_RELATIVE_PATH</option>
+                    </field>
+
+                </fieldset>
+
+		<!-- ADVANCED PARAMETERS -->
+		<fieldset name="advanced">
+
+                    <field name="trusted_authors" type="textarea" cols="25" rows="3" default="" label="TRUSTED_AUTHORS" description="TRUSTED_AUTHORS_DESC" />
+                    <field name="default_file_chmod" type="text" size ="4" default="0664" label="DEFAULT_FILE_CHMOD" description="DEFAULT_FILE_CHMOD_DESC" />
+			
+                    <field name="default_dir_chmod" type="text" size ="4" default="0775" label="DEFAULT_DIR_CHMOD" description="DEFAULT_DIR_CHMOD_DESC" />
+
+                    <field name="hide_credits_icon" type="radio" default="0" label="HIDE_CREDITS_ICON" description="HIDE_CREDITS_ICON_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+                    <field name="DEBUG_enabled" type="radio" default="0" label="DEBUG_ENABLED" description="DEBUG_ENABLED_DESC">
+                        <option value="0">JSMALL_NO</option>
+                        <option value="1">JSMALL_YES</option>
+                    </field>
+
+		</fieldset>
+
+            </fields>
+
+	</config>
+
+</extension>

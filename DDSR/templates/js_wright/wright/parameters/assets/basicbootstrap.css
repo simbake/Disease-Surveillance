@@ -1,0 +1,127 @@
+@font-face {
+  font-family:'FontAwesome';
+  src:url('../../fontawesome/font/fontawesome-webfont.eot');
+  src:url('../../fontawesome/font/fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../../fontawesome/font/fontawesome-webfont.woff') format('woff'),
+    url('../../fontawesome/font/fontawesome-webfont.ttf') format('truetype');
+  font-weight:normal;
+  font-style:normal
+}
+
+.row-fluid:after {
+    clear: both;
+}
+.row-fluid:before, .row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row-fluid:after {
+    clear: both;
+}
+.row-fluid:before, .row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row-fluid:before, .row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+.row-fluid:before, .row-fluid:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.row-fluid [class*="span"] {
+    -moz-box-sizing: border-box;
+    display: block;
+    float: left;
+    min-height: 30px;
+    width: 100%;
+}
+[class*="span"] {
+    float: left;
+}
+
+
+.row-fluid .span12 {
+    width: 100%;
+}
+.row-fluid .span11 {
+    width: 91.453%;
+}
+.row-fluid .span10 {
+    width: 82.906%;
+}
+.row-fluid .span9 {
+    width: 74.359%;
+}
+.row-fluid .span8 {
+    width: 65.812%;
+}
+.row-fluid .span7 {
+    width: 57.265%;
+}
+.row-fluid .span6 {
+    width: 48.7179%;
+}
+.row-fluid .span5 {
+    width: 40.1709%;
+}
+.row-fluid .span4 {
+    width: 31.6239%;
+}
+.row-fluid .span3 {
+    width: 23.0769%;
+}
+.row-fluid .span2 {
+    width: 14.5299%;
+}
+.row-fluid .span1 {
+    width: 5.98291%;
+}
+.icon-arrow-left:before{
+    content:"\f0d9";
+}
+
+.icon-arrow-right:before{
+    content:"\f0da";
+}
+
+.icon-arrow-left:before, .icon-arrow-left:before,
+.icon-arrow-right:before, .icon-arrow-right:before {
+    display: inline-block;
+    text-decoration: inherit;
+}
+
+li .icon-arrow-left, li .icon-arrow-left,
+li .icon-arrow-right, li .icon-arrow-right {
+    display: inline-block;
+    text-align: center;
+    width: 1.25em;
+}
+
+a .icon-arrow-left, a .icon-arrow-left,
+a .icon-arrow-right, a .icon-arrow-right {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.icon-arrow-left, .icon-arrow-left,
+.icon-arrow-right, .icon-arrow-right {
+    background-image: none !important;
+    background-position: 0 0;
+    background-repeat: repeat;
+    display: inline;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    height: auto;
+    line-height: normal;
+    text-decoration: inherit;
+    vertical-align: baseline;
+    width: auto;
+}
