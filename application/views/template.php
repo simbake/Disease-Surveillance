@@ -102,8 +102,8 @@ if (isset($styles)) {
 </div>
 
 				<div id="system_title">
-					<span style="display: block; font-weight: bold; font-size: 14px; margin:2px;">Ministry of Medical Services/Public Health and Sanitation</span>
-					<span style="display: block; font-size: 12px;">Disease Surveillance and Response</span>
+					<span style="display: block; font-weight: bold; font-size: 14px; margin:2px;">Ministry of Health</span>
+					<span style="display: block; font-size: 12px;">Disease Surveillance and Response Unit</span>
 					
 				</div>
 				<div class="banner_text"><?php echo $banner_text;?></div>
