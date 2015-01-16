@@ -55,7 +55,7 @@ class Raw_Data extends MY_Controller {
 				//$excell_data .= $result_set -> Disease_Object -> Name . "\t" . $result_set -> District_Object -> Name . "\t" . $result_set -> District_Object -> Province_Object -> Name . "\t" . $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Lmcase . "\t" . $result_set -> Lfcase . "\t" . $result_set -> Gmcase . "\t" . $result_set -> Gfcase . "\t" . ($result_set -> Lmcase + $result_set -> Lfcase + $result_set -> Gmcase + $result_set -> Gfcase) . "\t" . $result_set -> Lmdeath . "\t" . $result_set -> Lfdeath . "\t" . $result_set -> Gmdeath . "\t" . $result_set -> Gfdeath . "\t" . ($result_set -> Lmdeath + $result_set -> Lfdeath + $result_set -> Gmdeath + $result_set -> Gfdeath) . "\t" . $result_set -> Reporting_Year . "\t" . $result_set -> Reported_By . "\t" . $result_set -> Designation . "\t" . $result_set -> Date_Reported . "\t";
 				$excell_data .= $result_set['Disease_Name'] . "\t" . $result_set['District_Name'] . "\t" .$result_set['County_Name']. "\t". $result_set['Province_Name'] . "\t" . $result_set['Epiweek'] . "\t" . $result_set['Week_Ending'] . "\t" . $result_set['Lcase'] ."\t" . $result_set['Gcase'] . "\t" . ($result_set['Lcase'] + $result_set['Gcase']) . "\t" . $result_set['Ldeath'] . "\t" . $result_set['Gdeath'] . "\t" . ($result_set['Ldeath'] + $result_set['Gdeath']) . "\t" . $result_set['Reporting_Year'] . "\t" . $result_set['Reported_By'] . "\t" . $result_set['Designation'] . "\t" . $result_set['Date_Reported'] . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Surveillance_Data (" . $year . " epiweek " . $start_week . " to epiweek " . $end_week . ").xls");
@@ -70,7 +70,7 @@ class Raw_Data extends MY_Controller {
 			foreach ($malaria_data as $result_set) {
 				$excell_data .= $result_set -> District_Object -> Name . "\t" . $result_set -> District_Object->County_Object -> Name . "\t" .$result_set -> District_Object -> Province_Object -> Name . "\t" . $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Malaria_Below_5 . "\t" . $result_set -> Malaria_Above_5 . "\t" . ($result_set -> Malaria_Below_5 + $result_set -> Malaria_Above_5) . "\t" . $result_set -> Positive_Below_5 . "\t" . $result_set -> Positive_Above_5 . "\t" . ($result_set -> Positive_Below_5 + $result_set -> Positive_Above_5) . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Malaria_Test_Data (" . $_POST['year_from'] . " epiweek " . $_POST['epiweek_from'] . " to epiweek " . $_POST['epiweek_to'] . ").xls");
@@ -91,7 +91,7 @@ class Raw_Data extends MY_Controller {
 				//$excell_data .= $result_set -> Disease_Object -> Name . "\t" . $result_set -> District_Object -> Name . "\t" . $result_set -> District_Object -> Province_Object -> Name . "\t" . $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Lmcase . "\t" . $result_set -> Lfcase . "\t" . $result_set -> Gmcase . "\t" . $result_set -> Gfcase . "\t" . ($result_set -> Lmcase + $result_set -> Lfcase + $result_set -> Gmcase + $result_set -> Gfcase) . "\t" . $result_set -> Lmdeath . "\t" . $result_set -> Lfdeath . "\t" . $result_set -> Gmdeath . "\t" . $result_set -> Gfdeath . "\t" . ($result_set -> Lmdeath + $result_set -> Lfdeath + $result_set -> Gmdeath + $result_set -> Gfdeath) . "\t" . $result_set -> Reporting_Year . "\t" . $result_set -> Reported_By . "\t" . $result_set -> Designation . "\t" . $result_set -> Date_Reported . "\t";
 				$excell_data .= $result_set['Disease_Name'] . "\t" . $result_set['Facility_Name'] . "\t". $result_set['Epiweek'] . "\t" . $result_set['Week_Ending'] . "\t" . $result_set['Lcase'] . "\t" . $result_set['Gcase'] . "\t" . ($result_set['Lcase'] + $result_set['Gcase']) . "\t" . $result_set['Ldeath'] . "\t" . $result_set['Gdeath'] . "\t" . ($result_set['Ldeath'] + $result_set['Gdeath']) . "\t" . $result_set['Reporting_Year'] . "\t" . $result_set['Reported_By'] . "\t" . $result_set['Designation'] . "\t" . $result_set['Date_Reported'] . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Surveillance_Data (" . $year . " epiweek " . $start_week . " to epiweek " . $end_week . ").xls");
@@ -106,7 +106,7 @@ class Raw_Data extends MY_Controller {
 			foreach ($malaria_data as $result_set) {
 				$excell_data .= $result_set -> Facility_Object -> name . "\t". $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Malaria_Below_5 . "\t" . $result_set -> Malaria_Above_5 . "\t" . ($result_set -> Malaria_Below_5 + $result_set -> Malaria_Above_5) . "\t" . $result_set -> Positive_Below_5 . "\t" . $result_set -> Positive_Above_5 . "\t" . ($result_set -> Positive_Below_5 + $result_set -> Positive_Above_5) . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Malaria_Test_Data (" . $_POST['year_from'] . " epiweek " . $_POST['epiweek_from'] . " to epiweek " . $_POST['epiweek_to'] . ").xls");
@@ -129,7 +129,7 @@ class Raw_Data extends MY_Controller {
 				//$excell_data .= $result_set -> Disease_Object -> Name . "\t" . $result_set -> District_Object -> Name . "\t" . $result_set -> District_Object -> Province_Object -> Name . "\t" . $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Lmcase . "\t" . $result_set -> Lfcase . "\t" . $result_set -> Gmcase . "\t" . $result_set -> Gfcase . "\t" . ($result_set -> Lmcase + $result_set -> Lfcase + $result_set -> Gmcase + $result_set -> Gfcase) . "\t" . $result_set -> Lmdeath . "\t" . $result_set -> Lfdeath . "\t" . $result_set -> Gmdeath . "\t" . $result_set -> Gfdeath . "\t" . ($result_set -> Lmdeath + $result_set -> Lfdeath + $result_set -> Gmdeath + $result_set -> Gfdeath) . "\t" . $result_set -> Reporting_Year . "\t" . $result_set -> Reported_By . "\t" . $result_set -> Designation . "\t" . $result_set -> Date_Reported . "\t";
 				$excell_data .= $result_set['Disease_Name'] . "\t" . $result_set['Facility_Name'] . "\t". $result_set['Epiweek'] . "\t" . $result_set['Week_Ending'] . "\t" . $result_set['Lcase'] . "\t" . $result_set['Gcase'] . "\t" . ($result_set['Lcase'] + $result_set['Gcase']) . "\t" . $result_set['Ldeath'] . "\t" . $result_set['Gdeath'] . "\t" . ($result_set['Ldeath'] + $result_set['Gdeath']) . "\t" . $result_set['Reporting_Year'] . "\t" . $result_set['Reported_By'] . "\t" . $result_set['Designation'] . "\t" . $result_set['Date_Reported'] . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Surveillance_Data (" . $year . " epiweek " . $start_week . " to epiweek " . $end_week . ").xls");
@@ -144,7 +144,7 @@ class Raw_Data extends MY_Controller {
 			foreach ($malaria_data as $result_set) {
 				$excell_data .= $result_set -> Facility_Object -> name . "\t". $result_set -> Epiweek . "\t" . $result_set -> Week_Ending . "\t" . $result_set -> Malaria_Below_5 . "\t" . $result_set -> Malaria_Above_5 . "\t" . ($result_set -> Malaria_Below_5 + $result_set -> Malaria_Above_5) . "\t" . $result_set -> Positive_Below_5 . "\t" . $result_set -> Positive_Above_5 . "\t" . ($result_set -> Positive_Below_5 + $result_set -> Positive_Above_5) . "\t";
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Malaria_Test_Data (" . $_POST['year_from'] . " epiweek " . $_POST['epiweek_from'] . " to epiweek " . $_POST['epiweek_to'] . ").xls");
@@ -169,7 +169,7 @@ class Raw_Data extends MY_Controller {
 				$excell_data .= $result_set['Disease_Name'] . "\t" . $result_set['Facility_Name'] . "\t" . $result_set['facility_county']."\t" .$result_set['district_name']. "\t". $result_set['Epiweek'] . "\t" . $result_set['Week_Ending'] . "\t" . $result_set['Lcase'] . "\t" . $result_set['Gcase'] . "\t" . ($result_set['Lcase'] + $result_set['Gcase']) . "\t" . $result_set['Ldeath'] . "\t" . $result_set['Gdeath'] . "\t" . ($result_set['Ldeath'] + $result_set['Gdeath']) . "\t" . $result_set['Reporting_Year'] . "\t" . $result_set['Reported_By'] . "\t" . $result_set['Designation'] . "\t" . $result_set['Date_Reported'] . "\t";
 
 				$excell_data .= "\n";
-				//flush();
+				flush();
 			}
 			header("Content-type: application/vnd.ms-excel; name='excel'");
 			header("Content-Disposition: filename=Surveillance_Data (" . $year . " epiweek " . $start_week . " to epiweek " . $end_week . ").xls");

@@ -10,9 +10,11 @@ class Weekly_Data_Management extends MY_Controller {
 		$this -> add();
 	}
 
-	public function add($data = array()) {
-		$access_level = $this -> session -> userdata('user_indicator');
-		if ($access_level == "district_clerk") {
+	public function add() {
+		
+		$access_level = $this -> session -> userdata('user_indicator'); //Get user access level.
+		
+		if ($access_level == "district_clerk") { //DDSC
 			$district = $this -> session -> userdata('district_province_id');
 			$data['facilities'] = Facilities::getDistrictFacilitiesArrays($district);
 			$diseases = Disease::getAllObjects();
@@ -22,7 +24,9 @@ class Weekly_Data_Management extends MY_Controller {
 			$data['scripts'] = array("special_date_picker.js", "validationEngine-en.js", "validator.js");
 			$data["styles"] = array("validator.css");
 			$this -> base_params($data);
-		} else if ($access_level == "system_administrator") {
+		} 
+		else if ($access_level == "system_administrator") { // System Administrator
+			
 			if (!isset($data['editing'])) {
 				redirect("disease_ranking");
 			}
@@ -34,7 +38,7 @@ class Weekly_Data_Management extends MY_Controller {
 			$data['scripts'] = array("special_date_picker.js", "validationEngine-en.js", "validator.js");
 			$data["styles"] = array("validator.css");
 			$this -> base_params($data);
-		} else {
+		} else { // unauthorized user
 			$data['title'] = "Weekly Data";
 			$data['content_view'] = "error_message_v";
 			$data['error_message'] = "You are not authorized to add weekly epidemiological data. Please contact the system administrator for assistance!";
@@ -209,7 +213,8 @@ class Weekly_Data_Management extends MY_Controller {
 		$i = 0;
 		$valid = $this -> _validate_submission();
 		if ($valid == false) {
-			$this -> add();
+			//$this -> add();
+			redirect("weekly_data_management");
 		} else {
 			$editing = false;
 			$existing_district_data = false;
@@ -220,6 +225,7 @@ class Weekly_Data_Management extends MY_Controller {
 			if (strlen($editing_district_id) > 0) {
 				$district = $editing_district_id;
 			}
+			//Getting form data
 			$weekending = $this -> db -> escape_str($this -> input -> post("week_ending"));
 			$reporting_year = $this -> db -> escape_str($this -> input -> post("reporting_year"));
 			$epiweek = $this -> db -> escape_str($this -> input -> post("epiweek"));
@@ -232,6 +238,7 @@ class Weekly_Data_Management extends MY_Controller {
 			$designation = $this -> db -> escape_str($this -> input -> post("designation"));
 			$lab_id = $this -> input -> post("lab_id");
 			$surveillance_ids = $this -> input -> post("surveillance_ids");
+			
 			//Check if a duplicate for facility data exists
 			$data_exists = Facility_Surveillance_Data::getFacilityData($epiweek, $reporting_year, $facility);
 			if ($lab_id > 0) {
@@ -239,13 +246,22 @@ class Weekly_Data_Management extends MY_Controller {
 			}
 			//If there is a duplicate, redirect the user to the input form and inform them
 			if ($data_exists -> id && $editing == false) {
-				$data = array();
+				
+				//store data in flashdata that will be used to display duplicate notification
+				$this->session->set_flashdata('duplicate_facility', Facilities::getFacility($facility));
+				$this->session->set_flashdata('duplicate_epiweek', $epiweek);
+				$this->session->set_flashdata('duplicate_reporting_year', $reporting_year);
+				$this->session->set_flashdata('existing_data', true);
+				//echo "Duplicate detected";
+				redirect("weekly_data_management/");
+				
+				/*$data = array();
 				$data['duplicate_facility'] = Facilities::getFacility($facility);
 				$data['duplicate_epiweek'] = $epiweek;
 				$data['duplicate_reporting_year'] = $reporting_year;
 				$data['existing_data'] = true;
 				$this -> add($data);
-				return;
+				return;*/
 			}
 
 			$total_diseases = Disease::getTotal();
@@ -293,11 +309,13 @@ class Weekly_Data_Management extends MY_Controller {
 			} else {
 				$labdata = new Facility_Lab_Weekly();
 			}
+			//data from the form//
 			$totaltestedlessfive = $this -> input -> post("total_tested_less_than_five");
 			$totaltestedgreaterfive = $this -> input -> post("total_tested_greater_than_five");
 			$totalpositivelessfive = $this -> input -> post("total_positive_less_than_five");
 			$totalpositivegreaterfive = $this -> input -> post("total_positive_greater_than_five");
 			$remarks = $this -> input -> post("remarks");
+			
 
 			//Populate the facility lab data
 			$labdata -> Epiweek = $epiweek;
@@ -312,14 +330,18 @@ class Weekly_Data_Management extends MY_Controller {
 			$labdata -> Reporting_Year = $reporting_year;
 			$labdata -> Date_Created = date("Y-m-d");
 			$labdata -> save();
+			
 			$this -> update_district_record($district, $epiweek, $reporting_year);
 			if ($editing) {
-				$data['success_message'] = "You have successfully edited data for <b>" . $labdata -> Facility_Object -> name . "</b>";
-				$this -> add($data);
+				$success_message= "You have successfully edited data for <b>" . $labdata -> Facility_Object -> name . "</b>";
+				$this->session->set_flashdata('success_message',$success_message);
+				redirect("weekly_data_management/");
 			}
 			if (!$editing) {
-				$data['success_message'] = "You have successfully added weekly data for <b>" . $labdata -> Facility_Object -> name . "</b>";
-				$this -> add($data);
+		
+				$success_message= "You have successfully added weekly data for <b>" . $labdata -> Facility_Object -> name . "</b>";
+				$this->session->set_flashdata('success_message',$success_message);
+				redirect("weekly_data_management/");
 			}
 		}
 	}//end save

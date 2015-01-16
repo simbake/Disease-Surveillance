@@ -1,4 +1,14 @@
 <?php
+// Start of Retrieveing flashdata information on duplicate data that will be used to inform the user//
+$duplicate_facility=$this->session->flashdata("duplicate_facility");
+$duplicate_epiweek=$this->session->flashdata("duplicate_epiweek");
+$duplicate_reporting_year=$this->session->flashdata("duplicate_reporting_year");
+$existing_data=$this->session->flashdata("existing_data");
+// End of Retrieveing flashdata information on duplicate data that will be used to inform the user//
+
+//start of success message retrieve from flashdata//
+$success_message=$this->session->flashdata("success_message");
+//End of success message retrieve from flashdata//
 if (!isset($existing_data)) {
 	$existing_data = false;
 }
@@ -19,8 +29,16 @@ if (!isset($existing_data)) {
 		display: none;
 		margin: 5px auto;
 		padding: 10px;
+	}
+	#success_message{
+	    border: 1px solid red;
+		width: 500px;
+		display: none;
+		margin: 5px auto;
+		padding: 10px;	
 	}
 </style>
+
 <script type="text/javascript">
 	$(function() {
 //$("#entry-form").validationEngine();
@@ -313,10 +331,9 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 		</tr>
 		
 	</table>
-	<div id="data_exists_error" <?php
-		if ($existing_data == true) { echo "style='display:block'";
-		}
-	?>>
+	
+	<!--this is the error div display-->
+	<div id="data_exists_error" <?php if ($existing_data == true) { echo "style='display:block'";}?>>
 		<?php
 		if ($existing_data == true) {
 			$edit_link = base_url()."weekly_data_management/edit_weekly_data/".$duplicate_epiweek."/".$duplicate_reporting_year."/". $duplicate_facility->facilitycode;
@@ -324,6 +341,14 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 		}
 		?>
 	</div>
+	<?php if($success_message){ ?>
+		<div id="success_message" style='display:block'>
+		<?php echo $success_message; ?>
+		</div>
+		<?php } ?>
+	<!--End of error div display-->
+	
+	<!--Start of middle table-->
 	<table class="data-table" style="margin: 0 auto;">
 		<tr>
 			<th rowspan="2">Disease</th>
@@ -395,6 +420,9 @@ $class = "even";
 		}//end foreach
 		?>
 	</table>
+	<!--End of middle table-->
+	
+	<!--Start of lab table-->
 	<table class="data-table" style="margin: 10px auto;">
 		<tr class="odd">
 			<th colspan="1">Laboratory Weekly Malaria Confirmation</th>
@@ -434,12 +462,16 @@ $class = "even";
 			</td>
 		</tr>
 	</table>
+	<!--End of lab table-->
+	
 	<table style="margin: 5px auto;">
 		<tr>
 			<td>
-			<input name="save" id="submit_form" type="submit" class="button" value="Save " style="width:200px; height: 30px; font-size: 16px; letter-spacing: 2px !important" />
+				
+			<div id="submit form"><input name="save" id="submit_form" type="submit" class="button" value="Save " style="width:200px; height: 30px; font-size: 16px; letter-spacing: 2px !important" /></div>
 			</td>
 		</tr>
 	</table>
+	
 	</form>
 </div>

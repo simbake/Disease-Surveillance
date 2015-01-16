@@ -44,6 +44,11 @@ class Lab_Weekly extends Doctrine_Record {
 		}
 		
 	}
+	public static function getWeeklyFacilityLabData($epiweek, $reporting_year, $district) {
+		$query = Doctrine_Query::create() -> select("*") -> from("Lab_Weekly") -> where("Reporting_Year = '$reporting_year' and Epiweek = '$epiweek' and district = '$district'");
+		$lab_weekly = $query -> execute();
+		return $lab_weekly;
+	}
 
 	public static function getWeeklyLabSummaries($year, $epiweek) {
 		$query = Doctrine_Query::create() -> select("sum(Malaria_Below_5+Malaria_Above_5) as Tested, sum(Positive_Below_5+Positive_Above_5) as Positive ") -> from("lab_weekly") -> where("Reporting_Year = '$year' and Epiweek = '$epiweek'");

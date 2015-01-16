@@ -157,9 +157,32 @@ class Surveillance extends Doctrine_Record {
 		return $result[0];
 	}
 
-	public function getDuplicates($year, $epiweek) {
+	public function getDuplicatez($year, $epiweek) {
 		$total_diseases = Disease::getTotal();
 		$query = Doctrine_Query::create() -> select("District, Reporting_Year, Week_Ending, Epiweek, count(id) as Records") -> from("surveillance") -> where("epiweek = '$epiweek' and Reporting_Year = '$year'") -> groupBy("District") -> having("Records > '$total_diseases'");
+		$result = $query -> execute();
+		return $result;
+	}
+	public function getDuplicates($year, $epiweek, $district) {
+		$total_diseases = 0;
+		//First, get the total number of diseases being reported at the time
+		//$query_diseases = Doctrine_Query::create() -> select("Total_Diseases") -> from("facility_surveillance_data") -> where("epiweek = '$epiweek' and Reporting_Year = '$year' and District = '$district'") -> limit("1");
+		if(@$county && !$district){
+			$query_diseases = Doctrine_Query::create() -> select("f.Total_Diseases") -> from("surveillance f,district d") -> where("f.epiweek = '$epiweek' and f.Reporting_Year = '$year' and d.county='$county' AND d.id=f.district") -> limit("1");
+			}
+		else{
+		$query_diseases = Doctrine_Query::create() -> select("Total_Diseases") -> from("surveillance") -> where("epiweek = '$epiweek' and Reporting_Year = '$year' and District = '$district'") -> limit("1");
+		}
+		
+		$result_diseases = $query_diseases -> execute(array(), Doctrine::HYDRATE_ARRAY);
+		if(isset($result_diseases[0]['Total_Diseases'])){
+			$total_diseases =  $result_diseases[0]['Total_Diseases'];
+		}
+		//If none is reported, assume the current number
+		else{
+			$total_diseases = Disease::getTotal();
+		} 
+		$query = Doctrine_Query::create() -> select("District, Reporting_Year, Week_Ending, Epiweek, count(id) as Records") -> from("surveillance") -> where("epiweek = '$epiweek' and Reporting_Year = '$year' and District = '$district'"); //-> groupBy("Facility") -> having("Records > '$total_diseases'");
 		$result = $query -> execute();
 		return $result;
 	}
