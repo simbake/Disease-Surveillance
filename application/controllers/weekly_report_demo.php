@@ -266,8 +266,10 @@ class Weekly_Report_Demo extends MY_Controller {
 
 	function generatePDF($year, $data, $epiweek, $weekending, $display_type) {
 		if ($display_type == "Download Report PDF") {
+			  //$html_title="";	
 			$html_title = "<img src='Images/coat_of_arms.png' style='position:absolute; width:160px; width:160px; top:0px; left:0px; margin-bottom:-100px;margin-right:-100px;'></img>";
 		} else if ($display_type == "View Report") {
+				//$html_title="";
 			$html_title = "<img src='" . base_url() . "Images/coat_of_arms.png' style='position:absolute; width:160px; width:160px; top:0px; left:0px; margin-bottom:-100px;margin-right:-100px;'></img>";
 		}
 

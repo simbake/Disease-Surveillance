@@ -157,9 +157,9 @@ class Surveillance extends Doctrine_Record {
 		return $result[0];
 	}
 
-	public function getDuplicatez($year, $epiweek) {
+	public function getDuplicatez($year, $epiweek,$district) {
 		$total_diseases = Disease::getTotal();
-		$query = Doctrine_Query::create() -> select("District, Reporting_Year, Week_Ending, Epiweek, count(id) as Records") -> from("surveillance") -> where("epiweek = '$epiweek' and Reporting_Year = '$year'") -> groupBy("District") -> having("Records > '$total_diseases'");
+		$query = Doctrine_Query::create() -> select("District, Reporting_Year, Week_Ending, Epiweek, count(id) as Records") -> from("surveillance") -> where("epiweek = '$epiweek' and Reporting_Year = '$year' and district='$district'") -> groupBy("District") -> having("Records > '$total_diseases'");
 		$result = $query -> execute();
 		return $result;
 	}

@@ -101,7 +101,7 @@ else if(isset($duplicates[0]) && $duplicate_content=="surveillance"){ ?>
 		<?php
 		foreach ($duplicates as $duplicate) {
 			//$details_url="";
-			$details_url = base_url() . "data_duplication/data_duplicate_surveillance/" . $epiweek . "/" . $year;
+			$details_url = base_url() . "data_duplication/view_details_surveillance/" . $epiweek . "/" . $year;
 			echo "<tr><td>" . $duplicate -> Records / $total_diseases . "</td><td><a class='link' href='" . $details_url . "'>View Details</a></td></tr>";
 		}
 		?>
