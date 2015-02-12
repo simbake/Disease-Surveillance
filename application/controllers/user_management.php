@@ -268,5 +268,4 @@ class User_Management extends MY_Controller {
 		$user -> save();
 		redirect("user_management/listing");
 	}
-
 }

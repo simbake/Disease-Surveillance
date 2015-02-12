@@ -1,4 +1,5 @@
 <?php
+ini_set('error_reporting','1');
 class Weekly_Data_Management extends MY_Controller {
 
 	function __construct() {
@@ -10,8 +11,8 @@ class Weekly_Data_Management extends MY_Controller {
 		$this -> add();
 	}
 
-	public function add() {
-		
+	public function add($data) {
+        
 		$access_level = $this -> session -> userdata('user_indicator'); //Get user access level.
 		
 		if ($access_level == "district_clerk") { //DDSC
