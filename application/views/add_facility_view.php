@@ -5,12 +5,19 @@ echo validation_errors('
 <p class="error">','</p>
 '); 
 ?>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+				Search for Facility in MFL List
+				</div>
 
-<table border="0" class="data-table" style="margin: 0 auto;">
-
-	<tr>
-		<th class="subsection-title" colspan="2">Search for Facility in MFL List</th>
-	</tr>
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+	
 	<tbody> 
 		<tr>
 			<td><span class="mandatory">*</span> Facility Name</td>
@@ -24,9 +31,15 @@ echo validation_errors('
 	 
 			<tr>
 				<td align="center" colspan=2><input name="submit" type="submit"
-					class="button" value="Search"> </td>
+					class='btn btn-info' value="Search"> </td>
 			</tr>
 	
 	</tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php echo form_close();?>

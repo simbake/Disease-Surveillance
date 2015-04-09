@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 
 class Submissions_Management extends CI_Controller {
 	function __construct() {
@@ -288,7 +290,7 @@ class Submissions_Management extends CI_Controller {
 		$data['title'] = "Submissions";
 		$data['banner_text'] = "Submissions";
 		$data['link'] = "submissions_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

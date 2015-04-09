@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Facility_Management extends MY_Controller {
 	function __construct() {
 		parent::__construct();
@@ -66,7 +69,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "My Facilities";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function view_list() {
@@ -95,7 +98,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Add Facility";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function search_facility() {
@@ -118,7 +121,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Add Facility";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function facility_search() {
@@ -150,7 +153,7 @@ class Facility_Management extends MY_Controller {
 		$data['scripts'] = array("jquery-ui.js", "tab.js");
 		$data['styles'] = array("jquery-ui.css", "tab.css");
 
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 
@@ -158,7 +161,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "admin_view";
 		$data['quick_link'] = "facility_management";
 		$data['link'] = "system_administration";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 

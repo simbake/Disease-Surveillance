@@ -30,7 +30,7 @@ class Home_Controller extends MY_Controller {
 		$data['content_view'] = "data_analyses_v";
 		$data['diseases'] = Disease::getAllObjects();
 		$data['districts'] = District::getAll();
-		$data['scripts'] = array("FusionCharts/FusionCharts.js");
+		$data['scripts'] = array("assets/FusionCharts/FusionCharts.js");
 		$data['banner_text'] = "System Home";
 		$indicator = $this -> session -> userdata('user_indicator');
 		if($indicator == "district_clerk"){
@@ -41,7 +41,7 @@ class Home_Controller extends MY_Controller {
 			$data['districts'] = District::getDistrictCounty($this -> session -> userdata('county_id'));
 		}
 		$data['link'] = "home";  
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	function management_dashboard() {
@@ -49,8 +49,8 @@ class Home_Controller extends MY_Controller {
 		$data['content_view'] = "management_dashboard_v"; 
 		$data['banner_text'] = "System Home";
 		$data['link'] = "home";
-		$data['scripts'] = array("FusionCharts/FusionCharts.js");
-		$this -> load -> view("template", $data);
+		$data['scripts'] = array("assets/FusionCharts/FusionCharts.js");
+		$this -> load -> view("template_v", $data);
 	}
 
 }

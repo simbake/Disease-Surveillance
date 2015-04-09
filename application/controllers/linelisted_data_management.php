@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Linelisted_Data_Management extends MY_Controller {
 
 	function __construct() {
@@ -84,7 +87,7 @@ class Linelisted_Data_Management extends MY_Controller {
 		$data['content_view'] = "linelist_data_add_v";
 		$data['banner_text'] = "Linelisted Data";		
 		$data['quick_link'] = "linelisted_data_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 	
 

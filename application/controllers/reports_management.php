@@ -16,7 +16,7 @@ class Reports_Management extends MY_Controller {
 		$data['content_view'] = "reports_v";
 		$data['banner_text'] = "System Reports";
 		$data['link'] = "reports_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

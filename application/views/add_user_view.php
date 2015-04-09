@@ -1,9 +1,8 @@
 <div id="sub_menu">
-	<a href="<?php echo site_url("user_management/listing");?>" class="top_menu_link sub_menu_link first_link <?php
-	if ($quick_link == "add_user") {echo "top_menu_active";
-	}
-?>">&lt; &lt; Listing</a>
+	<br/> <br/>
+	<a href="<?php echo site_url("user_management/listing");?>" class="btn btn-info"> Listing</a>
 </div>
+
 <script type="text/javascript">
 	$(document).ready(function() {county_selector
 	$("#region_selector").css("display", "none");
@@ -59,43 +58,53 @@ echo validation_errors('
 <p class="error">', '</p>
 ');
 ?>
+
 <input type="hidden" name="user_id" value = "<?php echo $user_id;?>"/>
-<table border="0" class="data-table" style="margin:0 auto">
-	<tr>
-		<th class="subsection-title" colspan="2">User Details</th>
-	</tr>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					User Details
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+        	
 	<tbody>
 		<tr>
-			<td><span class="mandatory">*</span> Full Name</td>
+			<td><label for="name">*Full Name</label></td>
 			<td><?php
-
 			$data_search = array('name' => 'name', 'value' => $name);
 			echo form_input($data_search);
 			?></td>
 		</tr>
+		
 		<tr>
-			<td><span class="mandatory">*</span> Username</td>
+			<td><label for="username">*Username</label></td>
 			<td><?php
-
 			$data_search = array('name' => 'username', 'value' => $username);
 			echo form_input($data_search);
 			?></td>
 		</tr>
+		
 		<tr>
-			<td>User Can Download Raw Data?</td>
+			<td><label for="user_can_download_raw_data">User Can Download Raw Data?</label></td>
 			<td>
 			<input type="radio" name="user_can_download_raw_data" value="0" <?php if($user_can_download_raw_data == "0"){echo "checked = ''";}?>/> No<br />
 			<input type="radio" name="user_can_download_raw_data" value="1" <?php if($user_can_download_raw_data == "1"){echo "checked = ''";}?>/> Yes<br />
 			</td>
 		</tr>
 		<tr>
-			<td> User Can Delete Records?</td>
+			<td><label for="user_can_delete">User Can Delete Records?</label></td>
 			<td>
 			<input type="radio" name="user_can_delete" value="0" <?php if($user_can_delete == "0"){echo "checked = ''";}?>/> No<br />
 			<input type="radio" name="user_can_delete" value="1" <?php if($user_can_delete == "1"){echo "checked = ''";}?>/> Yes<br /></td>
 		</tr>
 		<tr>
-			<td> User Group</td>
+			<td><label for="user_group">User Group</label></td>
 			<td>
 			<select name="user_group" class="user_group">
 				<option value=''>None Selected</option>
@@ -110,8 +119,9 @@ foreach($levels as $level){
 				<?php }?>
 			</select></td>
 		</tr>
+		
 		<tr id="region_selector">
-			<td> Province</td>
+			<td><label for="province">Province</label></td>
 			<td>
 			<select name="province" >
 				<option value="">None Selected</option>
@@ -127,7 +137,8 @@ foreach($provinces as $province){
 			</select></td>
 		</tr>
 		<tr id="district_selector">
-			<td> District</td>
+			<td><label for="district">District</label></td>
+			
 			<td>
 			<select name="district" >
 				<option value="">None Selected</option>
@@ -143,7 +154,7 @@ foreach($districts as $district){
 			</select></td>
 		</tr>
 		<tr id="county_selector">
-			<td> County</td>
+			<td><label for="county">County</label></td>
 			<td>
 			<select name="county" >
 				<option value="">None Selected</option>
@@ -157,10 +168,15 @@ foreach($districts as $district){
 		
 		<tr>
 			<td align="center" colspan=2>
-			<input name="submit" type="submit"
-			class="button" value="Save User">
+			<input name="submit" type="submit" class="btn btn-info " value="Save User"/>
 			</td>
 		</tr>
 	</tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php echo form_close();?>

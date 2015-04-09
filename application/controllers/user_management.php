@@ -30,7 +30,7 @@ class User_Management extends MY_Controller {
 		$data['quick_link'] = "user_management";
 		$data['banner_text'] = "Change Pass";
 		$data['link'] = "system_administration";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function save_new_password() {
@@ -249,7 +249,7 @@ class User_Management extends MY_Controller {
 		$data['content_view'] = "home_v";
 		$data['banner_text'] = "Dashboards";
 		$data['link'] = "home";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	public function base_params($data) {
@@ -259,7 +259,7 @@ class User_Management extends MY_Controller {
 		$data['quick_link'] = "user_management";
 		$data['banner_text'] = "System Users";
 		$data['link'] = "admin_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function change_availability($code, $availability) {

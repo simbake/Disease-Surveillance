@@ -1,5 +1,9 @@
 <?php
 error_reporting(E_ALL^E_NOTICE);
+
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Elnino_Management extends MY_Controller {
 
     function __construct() {
@@ -118,7 +122,7 @@ class Elnino_Management extends MY_Controller {
         $data['banner_text'] = "El Nino Data";
         $data['link'] = "submissions_management";
         $data['quick_link'] = "elnino_management";
-        $this -> load -> view("template", $data);
+        $this -> load -> view("template_v", $data);
     }
 
 }//end class

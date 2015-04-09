@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class MOH_503 extends MY_Controller {
 
 	function __construct() {
@@ -29,7 +32,7 @@ class MOH_503 extends MY_Controller {
 		$data['banner_text'] ="";// "Line Listing Form";
 		$data['link'] = "moh_503";
 		$data['quick_link'] = "test";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	
 	}
 	
@@ -120,7 +123,7 @@ class MOH_503 extends MY_Controller {
 		//$data['quick_link'] = "moh_503_v";
 		$data['banner_text'] = "MOH 503";
 		//$data['link'] = "admin_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 	
 	/*public function listing($offset = 0) {

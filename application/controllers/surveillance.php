@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Surveillance extends Doctrine_Record {
 	public function setTableDefinition() {
 		$this -> hasColumn('Disease', 'varchar', 32);

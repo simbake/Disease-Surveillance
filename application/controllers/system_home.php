@@ -42,7 +42,7 @@ class Home_Controller extends MY_Controller {
 		$data['content_view'] = "home_v";
 		$data['banner_text'] = "System Home";
 		$data['link'] = "home";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 
 	}
 

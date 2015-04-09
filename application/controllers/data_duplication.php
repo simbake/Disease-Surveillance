@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Data_Duplication extends MY_Controller {
 
 	//required
@@ -24,7 +27,7 @@ class Data_Duplication extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Data Duplication";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function analyze() {
@@ -86,7 +89,7 @@ class Data_Duplication extends MY_Controller {
 		$data['content_view'] = "weekly_data_add_v";
 		$data['banner_text'] = "Weekly Data Correction";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	public function delete_duplicate($number_of_diseases, $first_surveillance_id, $malaria_data_id, $district, $epiweek, $year) {

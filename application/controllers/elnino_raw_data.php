@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class Elnino_Raw_Data extends MY_Controller {
 
     //required
@@ -51,7 +53,7 @@ class Elnino_Raw_Data extends MY_Controller {
         $data['banner_text'] = "Raw Data";
         $data['link'] = "reports_management";
 
-        $this -> load -> view('template', $data);
+        $this -> load -> view('template_v', $data);
     }
 
 }

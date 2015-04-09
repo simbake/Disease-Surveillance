@@ -40,9 +40,11 @@ $(function() {
 		}
 </script>
 <div id="sub_menu">
-<a href="<?php echo  site_url("moh_503/");?>" class="top_menu_link sub_menu_link first_link <?php if($quick_link == "add_user"){echo "top_menu_active";}?>"><< View MOH 503</a>  
+	<br/>
+<a href="<?php echo  site_url("moh_503/");?>" class='btn btn-info'> View MOH 503</a>  
  
 </div>
+	<br/>
 <div class="view_content">
 
 

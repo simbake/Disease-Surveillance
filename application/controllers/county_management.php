@@ -1,5 +1,6 @@
 <?php
-
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class County_Management extends MY_Controller {
 	function __construct() {
 
@@ -84,13 +85,13 @@ class County_Management extends MY_Controller {
 	}
 
 	private function base_params($data) {
-		$data['scripts'] = array("jquery-ui.js", "tab.js");
-		$data['styles'] = array("jquery-ui.css", "tab.css", "pagination.css");
+		// $data['scripts'] = array("jquery-ui.js", "tab.js");
+		// $data['styles'] = array("jquery-ui.css", "tab.css", "pagination.css");
 		$data['quick_link'] = "county_management";
 		$data['link'] = "admin_management";
 		$data['content_view'] = "admin_view";
 		$data['banner_text'] = "Counties Listing";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 

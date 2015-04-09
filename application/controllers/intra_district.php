@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Intra_District extends MY_Controller {
 
 	//required
@@ -63,7 +66,7 @@ class Intra_District extends MY_Controller {
 		$data['banner_text'] = "Intra-District Reporting";
 		$data['link'] = "reports_management";
 
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 }

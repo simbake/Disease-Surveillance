@@ -19,14 +19,29 @@ echo validation_errors('
 <p class="error">', '</p>
 ');
 ?>
+
 <input type="hidden" name="county_id" value = "<?php echo $county_id; ?>"/>
-<table border="0" class="data-table" style="margin: 5px auto">
-	<tr>
-		<th class="subsection-title" colspan="2">County Details</th>
-	</tr>
+
+
+
+<br/>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">County Details <span class="glyphicon glyphicon-globe" style=""></span></h3>
+				</div>
+
+ <div class="panel-body">
+ 	<div class="table-responsive">
+
+<table class="table table-striped  table-responsive table-bordered"  width="auto">
+	
 	<tbody>
 		<tr>
-			<td><span class="mandatory">*</span> County Name</td>
+			<td><label for="name">*County Name</label></td>
 			<td><?php
 
 			$data_search = array('name' => 'name', 'value' => $name);
@@ -34,7 +49,7 @@ echo validation_errors('
 			?></td>
 		</tr>
 		<tr>
-			<td><span class="mandatory">*</span> Region</td>
+			<td><label for="province">*Region</label></td>
 			<td>
 			<select name="province">
 				<?php
@@ -49,7 +64,7 @@ foreach($provinces as $province){
 			</select></td>
 		</tr>
 		<tr>
-			<td>HQ Latitude</td>
+			<td><label for="latitude">HQ Latitude</label></td>
 			<td><?php
 
 			$data_search = array('name' => 'latitude', 'value' => $latitude);
@@ -57,7 +72,7 @@ foreach($provinces as $province){
 			?></td>
 		</tr>
 		<tr>
-			<td>HQ Longitude</td>
+			<td><label for="longitude">HQ Longitude</label></td>
 			<td><?php
 
 			$data_search = array('name' => 'longitude', 'value' => $longitude);
@@ -66,10 +81,16 @@ foreach($provinces as $province){
 		</tr>
 		<tr>
 		<td align="center" colspan=2>
-		<input name="submit" type="submit"
-		class="button" value="Save County Details">
+		<input name="submit" type="submit" class="btn btn-info " value="Save County Details"/>
 		</td>
 	</tr>
 	</tbody>
 </table>  
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
 <?php echo form_close();?>
