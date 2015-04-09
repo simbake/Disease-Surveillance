@@ -3,136 +3,205 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title><?php echo $title;?></title>
-<link href="<?php echo base_url().'CSS/style.css'?>" type="text/css" rel="stylesheet"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>DDSR | <?php echo $title;?> </title>    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	
+    <link rel="icon" href="<?php echo base_url().'assets/images/coat_of_arms.png'?>" type="image/x-icon" />
+    <link href="<?php echo base_url().'assets/css/style.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/css/jquery-ui.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/bootstrap/css/bootstrap.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/bootstrap/css/bootstrap-responsive.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/css/datepicker.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/datatable/TableTools.css'?>" type="text/css" rel="stylesheet"/>
+	<link href="<?php echo base_url().'assets/datatable/dataTables.bootstrap.css'?>" type="text/css" rel="stylesheet"/>
 
-<?php if(isset($script_urls)){
-foreach ($script_urls as $script_url){
-echo "<script src=\"".$script_url."\" type=\"text/javascript\"></script>";
-}
-}?>
+	<script src="<?php echo base_url().'assets/scripts/bootstrap-datepicker.js'?>" type="text/javascript"></script>
+	<script src="<?php echo base_url().'assets/scripts/jquery.js'?>" type="text/javascript"></script>
+	
+    <script type="text/javascript">
+	
+    </script>
+	
+ <style>
+.panel-success>.panel-heading {
+color: white;
+background-color: #528f42;
+border-color: #528f42;
+border-radius:0;
 
-<?php if(isset($scripts)){
-foreach ($scripts as $script){
-echo "<script src=\"".base_url()."Scripts/".$script."\" type=\"text/javascript\"></script>";
 }
-}?>
-
-
- 
-<?php if(isset($styles)){
-foreach ($styles as $style){
-echo "<link href=\"".base_url()."CSS/".$style."\" type=\"text/css\" rel=\"stylesheet\"></link>";
+.navbar-default {
+background-color: white;
+border-color: #e7e7e7;
 }
-}?> 
-<style type="text/css">
-#signup_form{ 
-background-color:whiteSmoke; 
-border: 1px solid #E5E5E5;
-padding: 20px 25px 15px;
-width:500px;
-margin:0 auto;
-}
-#signup_form input[type="submit"] {
-margin: 0 1.5em 1.2em 0;
-height: 32px;
-font-size: 13px;
-}
-#signup_form label{
-display: block;
-margin: 0 auto 1.5em auto;
-width:300px;
- 
-}
-.label {
-font-weight: bold;
-margin: 0 0 .5em;
-display: block;
--webkit-user-select: none;
--moz-user-select: none;
-user-select: none;
-}
-.remember-label {
-font-weight: normal;
-color: #666;
-line-height: 0;
-padding: 0 0 0 .4em;
--webkit-user-select: none;
--moz-user-select: none;
-user-select: none;
-}
-#system_title{ 
-	position: absolute;
-	top: 50px;
-	left: 110px;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-	letter-spacing: 1px;
-}
-
 </style>
-</head>
+
+<script>
+  			$(function() {
+  	
+  	   $( "#month" ).combobox({
+        	selected: function(event, ui) {
+        		
+           var data =$("#year").val();
+           var month =$("#month").val();
+           //var name =encodeURI($("#desc option:selected").text());
+          
+          
+        var url = "<?php echo base_url().'report_management/monthly' ?>
+			"
+			$.ajax({
+			type: "POST",
+			data: "year="+data+"&month="+month,
+			url: url,
+			beforeSend: function() {
+			$("#contentlyf").html("");
+			},
+			success: function(msg) {
+			$("#contentlyf").html(msg);
+
+			}
+			});
+			return false;
+
+			}
+			});
+
+			$("#disease").combobox({
+			selected: function(event, ui) {
+
+			var dyear =$("#dyear").val();
+			var dmonth =$("#dmonth").val();
+			var dise=$("#disease").val();
+			var names =encodeURI($("#disease option:selected").text());
+
+			var url = "
+<?php echo base_url().'report_management/daily' ?>
+	"
+	$.ajax({
+	type: "POST",
+	data: "year="+dyear+"&month="+dmonth+"&disease="+dise+"&name="+names,
+	url: url,
+	beforeSend: function() {
+	$("#contently").html("");
+	},
+	success: function(msg) {
+	$("#contently").html(msg);
+
+	}
+	});
+	return false;
+
+	}
+	});
+
+	});
+  </script>
+  </head>  
+  
 
 <body>
-<div id="wrapper">
-	<div id="top-panel" style="margin:0px;">
+	
+<!-- Fixed navbar -->
+   <div class="navbar navbar-default navbar-fixed-top" id="">
+   <div class="container" style="width: 100%;">
+        <div class="navbar-header " > 
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+         
+          <a style="margin-top: auto;" >
+          	<img style="display:inline-block; width:auto%; width: 100px; height: 16%;margin-top:-10%" src="<?php echo base_url()?>assets/images/coat_of_arms.png" class="img-rounded img-responsive " alt="Responsive image" id="logo" >
+          	</a>
+				<div id="logo_text" style="display:inline-block; margin-top: 0%">
+					<span style="font-size: 1.20em;font-weight: bold; ">Ministry of Health</span><br />
+					<span style="font-size: 0.95em;font-weight: bold;">Disease Surveillance and Response Unit</span><br/>
+					<span style="font-size: 0.95em;">Electronic Intergreted Disease Surveillance and Response</span><br />	
+					<br />
+					<span>
+					
+				
+                   
+                   </span>
+				</div>
+				
+						
+				
+        </div>
+        
 
-		<div class="logo">
-<a class="logo" href="<?php echo base_url();?>" ></a> 
+        <div class="navbar-collapse collapse" style="font-weight: bold" id="navigate">
+          
+          <div class="nav navbar-nav navbar-right">
+          	
+          	  <div class="row">
+          		
+          	<div class="col-md-12">
 
-</div>
-<div id="system_title">
-<span style="display: block; font-weight: bold; font-size: 14px; margin:2px;">Ministry of Medical Services/Public Health and Sanitation</span>
- <span style="display: block; font-size: 12px;">Integrated Disease Surveillance and Response</span> 
-</div>
- 
-</div>
-
-<div id="inner_wrapper"> 
-
-
-<div id="main_wrapper"> 
-
- 
- 
-
-<div id="signup_form">
-	 <div class="short_title" >
-<h1 class="banner_text" >Sign in</h1>
-</div>
-<?php
-echo validation_errors('
-<p class="error">','</p>
-'); 
-if(isset($invalid)){
-	echo "<p class='error'>Invalid Credentials. Please try again</p>";
-}
-else if(isset($inactive)){
-	echo "<p class='error'>The Account is not active. Seek help from the Administrator</p>";
-}
-?>
-<form action="<?php echo base_url().'user_management/authenticate'?>" method="post" >
-<label>
-<strong class="label">Username</strong>
-<input type="text" name="username" id="username" value="">
-</label>
-<label>
-<strong class="label">Password</strong>
-<input type="password" name="password" id="password">
-</label>
- <input type="submit" class="    button " name="register" id="register" value="Sign in" style="margin-left:100px;">
-<label style="display:inline">
- <input type="checkbox" name="remember"> <strong class="remember-label">  Stay signed in  </strong>
-</label>
-
-</form>
-</div>
-
-</div>  
- 
-  <!--End Wrapper div--></div>
-    <div id="bottom_ribbon">
-        <div id="footer">
+            </div>
+            
+          	</div>
+          	
+          <div class="row">
+          	<div class="col-md-12">
+          	
+          </div>
+          </div>
+          
+            </div>
+         </div><!--/.nav-collapse -->
+      </div>
+      
+      
+      <div class="container-fluid" style="/*border: 1px solid #036; */ height: 30px;" id="extras-bar">
+      	<div class="row">
+      		
+      		<div class="col-md-4" style="font-weight:bold; ">
+      		
+      		 	
+     		</div>
+      		<div class="col-md-4">     			
+      		</div>
+      	</div>      	
+      </div>	
+      </div>
+<br/><br/><br/><br/><br/><br/><br/><br/>
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Please sign in</h3>
+			 	</div>
+			  	<div class="panel-body">
+			  		<form action="<?php echo base_url().'user_management/authenticate'?>" method="post" accept-charset="UTF-8" role="form" >
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="Username" name="username" id="username" type="text">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" id="password" type="password" value="">
+			    		</div>
+			    		<!-- <div class="checkbox">
+			    	    	<label>
+			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    	</label>
+			    	    </div> -->
+			    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Sign in"  name="register" id="register">
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+		
+    <div id="bottom_ribbon" align="center">
+        <div id="footer" >
  <?php $this->load->view("footer_v");?>
     </div>
     </div>
