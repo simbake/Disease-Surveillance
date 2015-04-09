@@ -1,1 +1,0 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeFile="PieData.aspx.cs" Inherits="DB_dataURL_PieData" Debug="true" %>
