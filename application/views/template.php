@@ -32,7 +32,11 @@ if ($access_level == "nascop_staff") {
 <link href="<?php echo base_url().'CSS/style.css'?>" type="text/css" rel="stylesheet"/> 
 <link href="<?php echo base_url().'CSS/jquery-ui.css'?>" type="text/css" rel="stylesheet"/> 
 <script src="<?php echo base_url().'Scripts/jquery.js'?>" type="text/javascript"></script> 
-<script src="<?php echo base_url().'Scripts/jquery-ui.js'?>" type="text/javascript"></script> 
+<script src="<?php echo base_url().'Scripts/jquery-ui.js'?>" type="text/javascript"></script>
+
+<!--Datatables scripts and css starts here-->
+<link href="<?php echo base_url().'Datatables/media/css/jquery.datatables.css'?>" type="text/css" rel="stylesheet"/> 
+<script src="<?php echo base_url().'Datatables/media/js/jquery.datatables.js'?>" type="text/javascript"></script> 
 
 <?php
 if (isset($script_urls)) {
@@ -102,8 +106,8 @@ if (isset($styles)) {
 </div>
 
 				<div id="system_title">
-					<span style="display: block; font-weight: bold; font-size: 14px; margin:2px;">Ministry of Medical Services/Public Health and Sanitation</span>
-					<span style="display: block; font-size: 12px;">Disease Surveillance and Response</span>
+					<span style="display: block; font-weight: bold; font-size: 14px; margin:2px;">Ministry of Health</span>
+					<span style="display: block; font-size: 12px;">Disease Surveillance and Response Unit</span>
 					
 				</div>
 				<div class="banner_text"><?php echo $banner_text;?></div>

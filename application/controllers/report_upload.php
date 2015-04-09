@@ -71,10 +71,11 @@ if (!is_dir('../idsr/Bulletins/'.$dates)) {
 	}
 	public function drag_drop(){
 	$allowed = array('doc', 'epub', 'pdf','docx');
-	$folder_year=date('Y');
-	if($_POST['current_year']){
+	$folder_year=$_POST['current_year'];
+	//$folder_year=date('Y');
+	/*if($_POST['current_year']){
     $folder_year=$_POST['current_year'];
-	}
+	}*/
 if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0){
 
 	$extension = pathinfo($_FILES['upl']['name'], PATHINFO_EXTENSION);

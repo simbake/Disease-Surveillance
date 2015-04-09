@@ -70,6 +70,7 @@ for($x=$current_year;$x>=$earliest_year;$x--){
 		<label for="epiweek">Epiweek</label>
 		<select
 		name="epiweek">
+		<option value="0">Load All</option>
 			<?php
 for($x=1;$x<=53;$x++){
 			?>

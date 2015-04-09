@@ -28,6 +28,15 @@
 		<a id="form_change">
 <form id="upload" method="post" action="<?php echo base_url() ?>report_upload/drag_drop/" enctype="multipart/form-data">
 	</a>
+	<select name="upload_year" id="upload_year">
+		<?php
+		$curr_year=date("Y"); 
+		while($curr_year>=2012){
+			echo "<option value='$curr_year'>$curr_year</option>";
+			$curr_year--;
+		}
+		?>
+	</select>
 			<div id="drop">
 				Drop Files Here
 

@@ -137,14 +137,25 @@ class Facility_Surveillance_Data extends Doctrine_Record {
 		return $result;
 	}
 
-	public function getRankedReports($year, $epiweek, $disease, $offset, $items) {
-		$query = Doctrine_Query::create() -> select("*") -> from("Facility_Surveillance_Data") -> where("Reporting_Year = '$year' and Epiweek = '$epiweek' and disease = '$disease'") -> orderBy("abs(Gcase+Lcase) desc, abs(Gdeath+Ldeath) desc") -> offset($offset) -> limit($items); ;
+	public function getRankedReports($year, $epiweek, $disease) {
+		if($epiweek>0){
+		$query = Doctrine_Query::create() -> select("*") -> from("Facility_Surveillance_Data") -> where("Reporting_Year = '$year' and Epiweek = '$epiweek' and disease = '$disease'") -> orderBy("abs(Gcase+Lcase) desc, abs(Gdeath+Ldeath) desc");
+		}
+		else{
+		$query = Doctrine_Query::create() -> select("*") -> from("Facility_Surveillance_Data") -> where("Reporting_Year = '$year' and disease = '$disease'") -> orderBy("abs(Gcase+Lcase) desc, abs(Gdeath+Ldeath) desc");
+			
+		}
 		$result = $query -> execute();
 		return $result;
 	}
 
 	public function getTotalRankedReports($year, $epiweek, $disease) {
+		if($epiweek>0){
 		$query = Doctrine_Query::create() -> select("count(*) as Total_Reports") -> from("Facility_Surveillance_Data") -> where("Reporting_Year = '$year' and Epiweek = '$epiweek' and disease = '$disease'");
+		}else{
+	$query = Doctrine_Query::create() -> select("count(*) as Total_Reports") -> from("Facility_Surveillance_Data") -> where("Reporting_Year = '$year' and disease = '$disease'");
+			
+		}
 		$result = $query -> execute();
 		return $result[0] -> Total_Reports;
 	}

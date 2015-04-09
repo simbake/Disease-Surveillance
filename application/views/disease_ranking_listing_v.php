@@ -1,7 +1,20 @@
-<table class="data-table" style="margin: 5px auto">
-			<caption>
-			<?php echo $small_title;?>
-		</caption>
+
+<script>
+	
+	$(document).ready(function() {
+        $('#dataTables-example').dataTable(
+		{
+		
+		}
+		);
+    });
+</script>
+
+<table class="" id="dataTables-example" width="100%">
+			<!--<caption>
+			<?php //echo $small_title;?>
+		</caption>-->
+		<thead>
 	<tr>
 		<th>Reporting Facility</th>
 		<th>District</th>
@@ -13,18 +26,16 @@
 		<th>Deaths</th>
 		<th>Action</th>
 	</tr>
-	<?php
-$report_counter = 0;
+	</thead>
+	
+	<tbody>
+		<?php
+//$report_counter = 0;
 foreach($reports as $report){
-$rem = $report_counter %2;
-$class = "odd";
-if($rem == 0){
-$class = "even";
-}
-$editing_link = base_url()."weekly_data_management/edit_weekly_data/".$epiweek."/".$year."/".$report->Facility;
-$deleting_link = base_url()."weekly_data_management/delete_weekly_data/".$epiweek."/".$year."/".$report->Facility;
+$editing_link = base_url()."weekly_data_management/edit_weekly_data/".$report->Epiweek."/".$year."/".$report->Facility;
+$deleting_link = base_url()."weekly_data_management/delete_weekly_data/".$report->Epiweek."/".$year."/".$report->Facility;
 	?>
-	<tr class="<?php echo $class;?>">
+	<tr>
 		<td><?php echo $report -> Facility_Object -> name;?></td>
 		<td><?php echo $report -> District_Object -> Name;?></td>
 		<td><?php echo $report -> Reported_By;?></td>
@@ -35,13 +46,7 @@ $deleting_link = base_url()."weekly_data_management/delete_weekly_data/".$epiwee
 		<td><?php echo ($report -> Gdeath+$report->Ldeath);?></td>
 		<td><a href="<?php echo $editing_link;?>" class="link">Edit Report</a> <a href="<?php echo $deleting_link;?>" class="link">Delete Report</a></td>
 	</tr>
-	<?php 
-$report_counter++;
-}?>
+<?php } ?>
+	</tbody>
+
 </table>
-<?php if (isset($pagination)):
-?>
-<div style="width:450px; margin:0 auto 60px auto">
-	<?php echo $pagination;?>
-</div>
-<?php endif;?>
