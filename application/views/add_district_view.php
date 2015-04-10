@@ -94,7 +94,7 @@ foreach($provinces as $province){
 		<tr>
 		<td align="center" colspan=2>
 		<input name="submit" type="submit"
-		class="btn" value="Save District">
+		class="btn btn-primary" value="Save District">
 		</td>
 	</tr>
 	</tbody>

@@ -13,24 +13,12 @@ class Facility_Management extends MY_Controller {
 		$this -> whole_list();
 	}
 
-	public function whole_list($offset = 0) {
-		$items_per_page = 20;
-		$number_of_facilities = Facilities::getTotalNumber();
-		$facilities = Facilities::getPagedFacilities($offset, $items_per_page);
-		if ($number_of_facilities > $items_per_page) {
-			$config['base_url'] = base_url() . "facility_management/whole_list/";
-			$config['total_rows'] = $number_of_facilities;
-			$config['per_page'] = $items_per_page;
-			$config['uri_segment'] = 3;
-			$config['num_links'] = 5;
-			$this -> pagination -> initialize($config);
-			$data['pagination'] = $this -> pagination -> create_links();
-		}
+	public function whole_list() {
+		$facilities = Facilities::getPagedFacilities();
 		$data['facilities'] = $facilities;
 		$data['banner_text'] = "All Facilities";
 		$data['title'] = "Facility Management::All Facilities";
 		$data['module_view'] = "view_facilities_view";
-		$data['styles'] = array("pagination.css");
 		$this -> new_base_params($data);
 	}
 

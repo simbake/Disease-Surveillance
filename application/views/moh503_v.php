@@ -41,7 +41,7 @@ $(function() {
 </script>
 <div id="sub_menu">
 	<br/>
-<a href="<?php echo  site_url("moh_503/");?>" class='btn btn-info'> View MOH 503</a>  
+<a href="<?php echo  site_url("moh_503/");?>" class='btn btn-primary'> View MOH 503</a>  
  
 </div>
 	<br/>
@@ -227,8 +227,8 @@ $(function() {
             
                                 </div>
 			                    <div class="col-lg-12">
-								<button type="submit" name="bookin" id="bookin" class="btn btn-default">Submit Button</button>
-                                        <button type="reset" class="btn btn-default">Reset Button</button>
+								<button type="submit" name="bookin" id="bookin" class="btn btn-primary ">Submit Button</button>
+                                        <button type="reset" class="btn btn-danger ">Reset Button</button>
 								</div>
 										
 								</form>

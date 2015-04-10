@@ -51,59 +51,26 @@ $(function() {
 });
 		
 </script>
-<style>
-	#center_content {
-		height: 1000px;
-	}
-	#mos_legend {
-		width: 400px;
-		height: 10px;
-	}
-	.graph {
-		width: 460px;
-		float: left;
-		margin: 10px;
-	}
-	#graph_content {
-		width: 100%;
-		margin: 0 auto; 
-	}
-	.larger_graph {
-		float: right;
-	}
-	.larger_graph_container {
-		width: 950px;
-		height: 500px;
-	}
-	.legend_content {
-		width: 100%;
-		overflow: hidden;
-		margin-top: 5px;
-	} 
-	#graph_filter,#immunization_graph_container {
-		width: 980px;
-		margin: 0 auto;
-		overflow: hidden;
-	}
-	#filter_facility{
-		width:200px;
-	}
 
-
-</style>
+<script>
+	$(document).ready(function() {
+    $('#analytics_table').DataTable();
+} );
+    </script>
+    
 <br/><br/>
 <div class="row">
 		 	<div class="container-fluid">
 		 		
           <div class="col-lg-12">
-<div class="panel panel-default">
+<div class="panel panel-primary">
 				<div class="panel-heading">
 					Filter Diseases
 				</div>
 
  <div class="panel-body ">
- 	   <div class="table-responsive">
-        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+ 
+        <table  style="margin-left: 0;" id="analytics_table" class="table table-striped table-bordered table-hover" width="100%">
 			<tr>
 			<?php 
 				$counter = 0;
@@ -122,7 +89,11 @@ $(function() {
 			</tr>
 			
 		<br/><br/>
+	
 			<tr>
+				
+
+
 		<b>District:</b>
 		
 		<select id="filter_district" style="width: 110px;">
@@ -203,7 +174,7 @@ for($x=0;$x<=10;$x++){
 	</tr>
 	
 		</table>
-</div>
+
 </div>
 </div>
 </div>
@@ -216,7 +187,7 @@ for($x=0;$x<=10;$x++){
 		 	<div class="container-fluid">
 		 		
           <div class="col-lg-12">
-<div class="panel panel-default">
+<div class="panel panel-success">
 				<div class="panel-heading">
 					Immunization Graph
 				</div>

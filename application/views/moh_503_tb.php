@@ -1,21 +1,27 @@
 <div id="sub_menu">
 	<br/>
-<a href="<?php echo  site_url("moh_503/add_view");?>" class='btn btn-info'>Add MOH 503</a>  
+<a href="<?php echo  site_url("moh_503/add_view");?>" class='btn btn-primary'>Add MOH 503</a>  
  	<br/><br/>
 </div>
 
+<script>
+$(document).ready( function () {
+    $('#moh_503').dataTable();
+} );
+    </script>
+    
 <div class="row">
 		 	<div class="container-fluid">
 		 		
           <div class="col-lg-12">
-<div class="panel panel-default">
+<div class="panel panel-primary">
 				<div class="panel-heading">
 					MOH 503
 				</div>
 
  <div class="panel-body ">
  	   <div class="table-responsive">
-        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+        <table id="#moh_503" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%"> 
 	
 	<tr>
 		<th>Facility</th> 

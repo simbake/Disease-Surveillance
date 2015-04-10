@@ -2,17 +2,28 @@
 <a href="<?php echo  site_url("user_management/add");?>" class="top_menu_link sub_menu_link first_link <?php if($quick_link == "add_user"){echo "top_menu_active";}?>">New User</a>  
  
 </div> -->
-
-<div class="panel panel-default">
+<script>
+$(document).ready( function () {
+    $('#user_table').dataTable();
+} );
+    </script>
+   
+    
+    <div class= "container-fluid">
+    <div class="row">  	
+<div class="panel panel-primary">
 				<div class="panel-heading">
 					Users
 				</div>
 
  <div class="panel-body">
-        <table class="table table-responsive table-hover table-striped" id="example" width="100%" >
+        
+<table id="user_table" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%"> 
 	
+		 <!-- <table  style="margin-left: 0;" id="user_table" class="table table-striped table-bordered table-hover" width="100%"> -->
+
 		<thead>
-			<tr><a href="<?php echo  site_url("user_management/add");?>" class="btn btn-info pull-left">New User</a></tr>
+			<tr><a href="<?php echo  site_url("user_management/add");?>" class="btn btn-primary pull-left">New User</a></tr>
 			<br/><br/><br/>
 		<tr>
 		<tr>
@@ -94,5 +105,8 @@
  ?>
  </tbody>
 </table>
+</div>
+</div>
+
 </div>
 </div>

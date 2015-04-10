@@ -2,7 +2,11 @@
 <a href="<?php echo  site_url("district_management/add");?>" class="top_menu_link sub_menu_link first_link <?php if($quick_link == "vaccine_management"){echo "top_menu_active";}?>">New District</a>  
  
 </div> -->
-
+<script>
+$(document).ready( function () {
+    $('#district_table').dataTable();
+} );
+    </script>
 <div class="row">
 		 	<div class="container-fluid">
 		 		
@@ -14,10 +18,10 @@
 
  <div class="panel-body">
  	<div class="table-responsive">
-        <table class="table table-responsive table-hover table-striped" id="example" width="100%" >
+       <table id="district_table" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%"> 
 	
 		<thead>
-			<tr><a href="<?php echo  site_url("district_management/add");?>" class="btn btn-info pull-left">New District</a></tr>
+			<tr><a href="<?php echo  site_url("district_management/add");?>" class="btn btn-primary pull-left">New District</a></tr>
 			<br/><br/><br/>
 		<tr>
 		<th>Name</th>

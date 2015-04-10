@@ -1,6 +1,5 @@
 <div id="sub_menu">
-	<br/> <br/>
-	<a href="<?php echo site_url("user_management/listing");?>" class="btn btn-info"> Listing</a>
+	<a href="<?php echo site_url("user_management/listing");?>" class="btn btn-primary pull-left"> Listing</a>
 </div>
 
 <script type="text/javascript">
@@ -60,6 +59,7 @@ echo validation_errors('
 ?>
 
 <input type="hidden" name="user_id" value = "<?php echo $user_id;?>"/>
+
 <div class="row">
 		 	<div class="container-fluid">
 		 		
@@ -168,7 +168,7 @@ foreach($districts as $district){
 		
 		<tr>
 			<td align="center" colspan=2>
-			<input name="submit" type="submit" class="btn btn-info " value="Save User"/>
+			<input name="submit" type="submit" class="btn btn-primary " value="Save User"/>
 			</td>
 		</tr>
 	</tbody>

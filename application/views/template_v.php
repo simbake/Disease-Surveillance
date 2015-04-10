@@ -37,17 +37,31 @@ if ($access_level == "nascop_staff") {
     <meta name="description" content="">
     <meta name="author" content="">
 	
-    <link rel="icon" href="<?php echo base_url().'assets/images/coat_of_arms.png'?>" type="image/x-icon" />
-    <link href="<?php echo base_url().'assets/css/style.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/css/jquery-ui.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/bootstrap/css/bootstrap.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/bootstrap/css/bootstrap-responsive.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/css/datepicker.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/datatable/TableTools.css'?>" type="text/css" rel="stylesheet"/>
-	<link href="<?php echo base_url().'assets/datatable/dataTables.bootstrap.css'?>" type="text/css" rel="stylesheet"/>
+   <link rel="icon" href="<?php echo base_url().'assets/images/coat_of_arms.png'?>" type="image/x-icon" />
+   <link href="<?php echo base_url().'assets/css/style.css'?>" type="text/css" rel="stylesheet"/> 
+   
+       <!--Bootstrap & Bootstrap Datatables==========================  -->
+   <link href="<?php echo base_url().'assets/bootstrap/css/bootstrap.css'?>" type="text/css" rel="stylesheet"/> 
+   <link href="<?php echo base_url().'assets/main/bootstrap.min.css'?>" type="text/css" rel="stylesheet"/>
+   <link href="<?php echo base_url().'assets/main/dataTables.bootstrap.css'?>" type="text/css" rel="stylesheet"/>
+   
+   <!--Jquery UI ==========================  -->
+   <link href="<?php echo base_url().'assets/css/jquery-ui.css'?>" type="text/css" rel="stylesheet"/>
+   
+   <!--Jquery & Jquery Datatables==========================  -->
+   <script src="<?php echo base_url().'assets/main/jquery-1.10.2.min.js'?>" type="text/javascript"></script> 	
+   <script src="<?php echo base_url().'assets/main/jquery.dataTables.min.js'?>" type="text/javascript"></script>
+   <script src="<?php echo base_url().'assets/main/dataTables.bootstrap.js'?>" type="text/javascript"></script>
+   
+    <!--Online Backup files ==========================  -->
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> 
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.css">
+<script type="text/javascript" language="javascript" src="//code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/1.10.6/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" language="javascript" src="//cdn.datatables.net/plug-ins/1.10.6/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+	
+	
 
-	
-	
     <script type="text/javascript">
 	
     </script>
@@ -126,6 +140,9 @@ border-color: #e7e7e7;
 
 	});
   </script>
+
+
+  
   </head>  
   <body>
     <!-- Fixed navbar -->
@@ -139,7 +156,7 @@ border-color: #e7e7e7;
             <span class="icon-bar"></span>
           </button>
          
-          <a style="margin-top: auto;" >
+          <a style="margin-top:auto;" >
           	<img style="display:inline-block; width:auto%; width: 100px; height: 16%;margin-top:-10%" src="<?php echo base_url()?>assets/images/coat_of_arms.png" class="img-rounded img-responsive " alt="Responsive image" id="logo" >
           	</a>
 				<div id="logo_text" style="display:inline-block; margin-top: 0%">
@@ -241,14 +258,14 @@ $counter++;
     </div> <!-- /container -->
     
  
-    
-   <div id="footer">
+      <div id="footer">
       <div class="container">
         <p class="text-muted"> Government of Kenya &copy <?php echo date('Y');?>. All Rights Reserved
 </p>
         
       </div>
     </div>
+    
     <script type="text/javascript">
     /*
  * Auto logout
@@ -316,22 +333,4 @@ return i;
 });
 </script>
 
-   <!-- <script src="<?php echo base_url().'assets/bootstrap/js/bootstrap.min.js'?>" type="text/javascript"></script> -->
-    <!-- Bootstrap core JavaScript===================== -->	
-  <script src="<?php echo base_url().'assets/scripts/jquery.js'?>" type="text/javascript"></script>
-  <script src="<?php echo base_url().'assets/scripts/jquery-ui.js'?>" type="text/javascript"></script>
-  <script src="<?php echo base_url().'assets/scripts/highcharts.js'?>" type="text/javascript"></script>
-   <script src="<?php echo base_url().'assets/scripts/exporting.js'?>" type="text/javascript"></script>
-  <!-- <script src="<?php echo base_url().'assets/scripts/bootstrap-datepicker.js'?>" type="text/javascript"></script> -->
-  <!-- Placed at the end of the document so the pages load faster -->
-  <!-- <script src="<?php echo base_url().'assets/scripts/hcmp_shared_functions.js'?>" type="text/javascript"></script> -->
-    <!--Datatables==========================  -->
-  <script src="<?php echo base_url().'assets/datatable/jquery.dataTables.js'?>" type="text/javascript"></script>	
-  <script src="<?php echo base_url().'assets/datatable/dataTables.bootstrap.js'?>" type="text/javascript"></script>
-   <script src="<?php echo base_url().'assets/datatable/dataTables.bootstrapPagination.js'?>" type="text/javascript"></script>
-  <script src="<?php echo base_url().'assets/datatable/TableTools.js'?>" type="text/javascript"></script>
-  <!-- <script src="<?php echo base_url().'assets/datatable/ZeroClipboard.js'?>" type="text/javascript"></script> -->
-  <script src="<?php echo base_url().'assets/datatable/dataTables.bootstrapPagination.js'?>" type="text/javascript"></script>
-  <!-- validation ===================== -->
-  <script src="<?php echo base_url().'assets/scripts/jquery.validate.min.js'?>" type="text/javascript"></script>
 </html>

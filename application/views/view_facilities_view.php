@@ -6,7 +6,7 @@ if (!isset($sub_link)) {
 
 <script>
 	$(document).ready(function() {
-    $('#example').DataTable();
+    $('#facility_table').DataTable();
 } );
     </script>
     
@@ -27,7 +27,7 @@ if (!isset($sub_link)) {
 
  <div class="panel-body">
  	 <div class="table-responsive">
-        <table  style="margin-left: 2;" id="example" class="table table-striped table-bordered table-hover" width="100%">
+        <table id="facility_table" class="display" cellspacing="0" width="100%">
 	
 		<thead>
 			

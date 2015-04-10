@@ -1,15 +1,20 @@
-<div class="row">
+<script>
+	$(document).ready(function() {
+    $('#deletion_table').DataTable();
+} );
+    </script>
+
+
 		 	<div class="container-fluid">
-		 		
+	<div class="row">	 		
           <div class="col-lg-12">
-<div class="panel panel-default">
+<div class="panel panel-primary">
 				<div class="panel-heading">
 				Data Deletion Logs
 				</div>
 
  <div class="panel-body ">
- 	   <div class="table-responsive">
-        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+         <table id="deletion_table" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%">
 
 	<tr>
 		<th>Deleted By</th>
@@ -39,7 +44,7 @@ $class = "even";
 $log_counter++;
 }?>
 </table>
-</div>
+
 </div>
 </div>
 </div>

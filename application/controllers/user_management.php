@@ -177,20 +177,8 @@ class User_Management extends MY_Controller {
 
 	}
 
-	public function listing($offset = 0) {
-		$items_per_page = 20;
-		$number_of_users = Users::getTotalNumber();
-		$users = Users::getPagedUsers($offset, $items_per_page);
-		if ($number_of_users > $items_per_page) {
-			$config['base_url'] = base_url() . "user_management/listing/";
-			$config['total_rows'] = $number_of_users;
-			$config['per_page'] = $items_per_page;
-			$config['uri_segment'] = 3;
-			$config['num_links'] = 5;
-			$this -> pagination -> initialize($config);
-			$data['pagination'] = $this -> pagination -> create_links();
-		}
-
+	public function listing() {
+		$users = Users::getPagedUsers();
 		$data['users'] = $users;
 		$data['title'] = "User Management::All System Users";
 		$data['module_view'] = "view_users_view";

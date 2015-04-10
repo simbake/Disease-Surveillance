@@ -1,23 +1,21 @@
 <script>
-	$(document).ready(function() {
-    $('#example').DataTable();
+$(document).ready( function () {
+    $('#county_table').dataTable();
 } );
     </script>
- <div class="row">
+<div class= "container-fluid">
+    <div class="row"> 
 		 	<div class="container-fluid">
-		 		
-          <div class="col-lg-12">
-<div class="panel panel-default">
+<div class="panel panel-primary">
 				<div class="panel-heading">
 					Counties
 				</div>
-
  <div class="panel-body ">
- 	   <div class="table-responsive">
-        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+ 	  
+        <table  style="margin-left: 0;" id="county_table" class="table table-striped table-bordered table-hover" width="100%">
 	
 		<thead>
-			<tr><a href="<?php echo  site_url("county_management/add");?>" class="btn btn-info pull-left">New County</a></tr>
+			<tr><a href="<?php echo  site_url("county_management/add");?>" class="btn btn-primary pull-left">New County</a></tr>
 			<br/><br/><br/>
 		<tr>
 			
@@ -56,7 +54,7 @@ if($county->Disabled == 0){
 	<?php }?>
 	</tbody>
 </table>
-</div>
+
 </div>
 </div>
 </div>
