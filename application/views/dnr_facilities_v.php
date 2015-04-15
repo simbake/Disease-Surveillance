@@ -35,11 +35,24 @@ $earliest_year = $current_year - 5;
 	}
 
 </style>
-<div id="filter">
+
 	<?php
 	$attributes = array("method" => "POST");
 	echo form_open('dnr_facilities/view_list', $attributes);
 	?>
+	
+		<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Raw Data
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 	<fieldset>
 		<legend>
 			Select Filter Options
@@ -68,18 +81,39 @@ for($x=1;$x<=53;$x++){
 		</select>
 		<input type="submit" name="surveillance" class="button"	value="View facilities that did not report" />
 	</fieldset>
-	</form> <?php
+	
+	
+	<?php
 if(isset($dnr_facilities[0])){
 	?>
-	<table class="data-table" style="margin: 0 auto">
-		<caption><?php echo $small_title;?></caption>
-		<th>Facility</th>
+	
+	<div class="panel panel-default">
+				<!-- <div class="panel-heading">
+					<?php echo $small_title;?>
+				</div> -->
+
+ <!-- <div class="panel-body "> -->
+ 	   <div class="table-responsive">
+        <!-- <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%"> -->
+		<th><?php echo $small_title;?></th>
 		<?php
 			foreach ($dnr_facilities as $facility) { 
 					echo "<tr><td>" . $facility['name'] . "</td></tr>"; 
 			
 		}
 		?>
-	</table>
+	<!-- </table> -->
+	</div>
+	<!-- </div> -->
+	</div>
+	
 	<?php }?>
-</div>
+
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</form> 

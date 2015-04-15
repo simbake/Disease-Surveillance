@@ -235,6 +235,7 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 		$("#" + gdeath).attr("value", "0");
 	}
 </script>
+
 <div class="view_content">
 	<?php
 	$disease_surveillance_data = array();
@@ -300,8 +301,44 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 	echo form_open('weekly_data_management/save', $attributes);
 	echo validation_errors('<p class="error">', '</p>');
 	?>
+	
+	<!-- Menu Tabs  -->
+	<div class="row">
+            <div class="col-lg-12">
 
-	<table  style="margin: 5px auto; border: 2px solid #EEEEEE;">
+                <ul id="myTab" class="nav nav-pills ">
+                    <li class="active"><a href="<?php echo site_url("district_management");?>" data-toggle="tab"><i class="fa fa-tree"></i>Districts</a>
+                    </li>
+                    <li class=""><a href="<?php echo site_url("county_management");?>" data-toggle="tab"><i class="fa fa-car"></i> Counties</a>
+                    </li>
+                    <li class=""><a href="<?php echo site_url("facility_management");?>" data-toggle="tab"><i class="fa fa-support"></i>Facilities</a>
+                    </li>
+                    <li class=""><a href="<?php echo site_url('disease_ranking');?>" data-toggle="tab"><i class="fa fa-database"></i>Disease Ranking</a>
+                    </li>
+                    <li class=""><a href="<?php echo site_url("user_management/listing");?>" data-toggle="tab"><i class="fa fa-database"></i> Users</a>
+                    </li>
+                    <li class=""><a href="<?php echo site_url("report_upload");?>" data-toggle="tab"><i class="fa fa-database"></i>Upload</a>
+                    </li>
+                </ul>
+
+               
+
+            </div>
+        </div>
+        <!-- End Of Menu Tabs -->
+        
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Weekly Data
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+	 <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<tr>
 			<td><b>Week Ending:</b></td><td>
 			<input readonly="" type="text" name="week_ending" id="weekending" class="validate[required]" value="<?php echo $week_ending;?>"/>
@@ -331,6 +368,13 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 		</tr>
 		
 	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
 	
 	<!--this is the error div display-->
 	<div id="data_exists_error" <?php if ($existing_data == true) { echo "style='display:block'";}?>>
@@ -349,9 +393,15 @@ var edit_url = '<?php echo base_url()?>'+"weekly_data_management/edit_weekly_dat
 	<!--End of error div display-->
 	
 	<!--Start of middle table-->
-	<table class="data-table" style="margin: 0 auto;">
+	<div class="row">
+<div class="container-fluid">		 		
+<div class="col-lg-12">
+<div class="panel panel-default">
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+	 <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<tr>
-			<th rowspan="2">Disease</th>
+			<th>Disease</th>
 			<th colspan="2">&le;5 Years</th>
 			<th colspan="2">&ge;5 Years</th>
 			<th rowspan="2">Zero Reporting</br><input type="checkbox" id ="check_all"></th>
@@ -419,14 +469,31 @@ $class = "even";
 		$counter ++;
 		}//end foreach
 		?>
-	</table>
+		</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
 	<!--End of middle table-->
 	
 	<!--Start of lab table-->
-	<table class="data-table" style="margin: 10px auto;">
+		<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Lab Table
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+	 <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<tr class="odd">
-			<th colspan="1">Laboratory Weekly Malaria Confirmation</th>
-			<th colspan="2">&le;5 years</th>
+			<th >Laboratory Weekly Malaria Confirmation</th>
+			<th >&le;5 years</th>
 			<th colspan="7">&ge;5years</th>
 		</tr>
 		<tr class="even">
@@ -461,17 +528,20 @@ $class = "even";
 			<input type="text" name="designation" id="designation" value="<?php echo $designation;?>">
 			</td>
 		</tr>
+		
 	</table>
+	<tr>
+			<div  align="center" >
+<input name="save"  type="submit" class="btn btn-info " value="Save " /></div>
+	</tr>
+		</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
 	<!--End of lab table-->
-	
-	<table style="margin: 5px auto;">
-		<tr>
-			<td>
-				
-			<div id="submit form"><input name="save" id="submit_form" type="submit" class="button" value="Save " style="width:200px; height: 30px; font-size: 16px; letter-spacing: 2px !important" /></div>
-			</td>
-		</tr>
-	</table>
-	
-	</form>
+
 </div>

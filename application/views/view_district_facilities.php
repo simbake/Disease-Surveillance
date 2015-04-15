@@ -8,19 +8,32 @@ $access_level=$this->session->userdata("user_indicator");
 		
 
 ?>
+<script>
+$(document).ready( function () {
+    $('#district_facility_table').dataTable();
+} );
+<link href="<?php echo base_url().'assets/DataTables/media/css/jquery.dataTables.css'?>" type="text/css" rel="stylesheet"/>
+ <script src="<?php echo base_url().'assets/DataTables/media/js/jquery.js'?>" type="text/javascript"></script>	  
+  <script src="<?php echo base_url().'assets/DataTables/media/js/jquery.dataTables.js'?>" type="text/javascript"></script>
+  
+</script>
 <div id="sub_menu" style="margin:5px;">
-	<a href="<?php echo site_url('facility_management/new_facility');?>" class="top_menu_link sub_menu_link first_link  <?php
-	if ($sub_link == "new_facility") {echo "top_menu_active";
-	}
-	?>">New Facility</a>
+	<a href="<?php echo site_url('facility_management/new_facility');?>" class='btn btn-info'>New Facility</a>
 </div>
-<?php  if (isset($pagination)): ?>
-<div style="width:450px; margin:0 auto 60px auto">
-<?php echo $pagination; ?>
-</div>
-<?php endif; ?>
-<table border="0" class="data-table" style="margin:0 auto">
-	<th class="subsection-title" colspan="11">Current Facilities</th>
+
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Current Facilities
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="facility_table" class="table table-striped table-bordered table-hover" width="100%">
+	
 	<tr>
 		<th>MFL Code</th> 
 		<th>Name</th>		
@@ -48,12 +61,11 @@ $access_level=$this->session->userdata("user_indicator");
  
  <?php }
  ?>
-	 
- 
-
-</table> 
-<?php if (isset($pagination)): ?>
-<div style="width:450px; margin:0 auto 60px auto">
-<?php echo $pagination; ?>
+</table>
 </div>
-<?php endif; ?>
+</div>
+</div>
+</div>
+</div>
+</div>
+

@@ -35,11 +35,24 @@ $earliest_year = $current_year - 5;
 	}
 
 </style>
-<div id="filter">
+
 	<?php
 	$attributes = array("method" => "POST");
 	echo form_open('data_duplication/analyze', $attributes);
 	?>
+	
+	<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Timeliness Reports
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 	<fieldset>
 		<legend>
 			Select Filter Options
@@ -69,10 +82,20 @@ for($x=1;$x<=53;$x++){
 		<input type="submit" name="facility_surveillance" class="button"	value="Analyze facility surveillance duplication in period" />
 		<input type="submit" name="surveillance" class="button"	value="Analyze surveillance data duplication in period" />
 	</fieldset>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	
 	</form> <?php
 if(isset($duplicates[0]) && $duplicate_content=="facility"){
 	?>
-	<table class="data-table" style="margin: 0 auto">
+	<div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<caption>
 			<?php echo $small_title;?>
 		</caption>
@@ -87,10 +110,16 @@ if(isset($duplicates[0]) && $duplicate_content=="facility"){
 		}
 		?>
 	</table>
+	</div>
+	</div>
+	
+	
 	<?php }
 else if(isset($duplicates[0]) && $duplicate_content=="surveillance"){ ?>
 	
-	<table class="data-table" style="margin: 0 auto">
+	<div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<caption>
 			<?php echo $small_title;?>
 		</caption>
@@ -106,6 +135,9 @@ else if(isset($duplicates[0]) && $duplicate_content=="surveillance"){ ?>
 		}
 		?>
 	</table>
+	</div>
+	</div>
+
 			
 			
 	<?php	}
@@ -114,4 +146,4 @@ else if(isset($duplicates[0]) && $duplicate_content=="surveillance"){ ?>
 		echo "<p style='margin:5px'>No duplicates were found in your selection. Change the parameters and try again</p>";
 		}
 	?>
-</div>
+

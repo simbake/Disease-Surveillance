@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class District_Reports extends MY_Controller {
 
 	//required
@@ -24,7 +26,7 @@ class District_Reports extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "District Reports";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function get_list() {

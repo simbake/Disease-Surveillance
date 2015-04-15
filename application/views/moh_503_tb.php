@@ -1,14 +1,28 @@
 <div id="sub_menu">
-<a href="<?php echo  site_url("moh_503/add_view");?>" class="top_menu_link sub_menu_link first_link <?php if($quick_link == "add_user"){echo "top_menu_active";}?>">Add MOH 503</a>  
- 
+	<br/>
+<a href="<?php echo  site_url("moh_503/add_view");?>" class='btn btn-primary'>Add MOH 503</a>  
+ 	<br/><br/>
 </div>
-<?php if (isset($pagination)): ?>
-<div style="width:450px; margin:0 auto 60px auto">
-<?php echo $pagination; ?>
-</div>
-<?php endif; ?>
-<table border="0" class="data-table" style="margin:0 auto ">
-	<th class="subsection-title" colspan="19">MOH 503</th>
+
+<script>
+$(document).ready( function () {
+    $('#moh_503').dataTable();
+} );
+    </script>
+    
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-primary">
+				<div class="panel-heading">
+					MOH 503
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table id="#moh_503" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%"> 
+	
 	<tr>
 		<th>Facility</th> 
 		<th>District</th>		
@@ -98,9 +112,10 @@
 	 
  
 
-</table> 
-<?php if (isset($pagination)): ?>
-<div style="width:450px; margin:0 auto 60px auto">
-<?php echo $pagination; ?>
+</table>
 </div>
-<?php endif; ?>
+</div>
+</div>
+</div>
+</div>
+</div>

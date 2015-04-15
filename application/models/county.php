@@ -50,8 +50,8 @@ class County extends Doctrine_Record {
 		return $countyData[0] -> Total_Counties;
 	}
 
-	public function getPagedCounties($offset, $items) {
-		$query = Doctrine_Query::create() -> select("*") -> from("County")-> orderBy("Name") -> offset($offset) -> limit($items);
+	public function getPagedCounties() {
+		$query = Doctrine_Query::create() -> select("*") -> from("County")-> orderBy("Name");
 		$countyData = $query -> execute();
 		return $countyData;
 	}

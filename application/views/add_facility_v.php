@@ -91,11 +91,20 @@ $attributes = array('id' => 'facilityData','onsubmit'=>'return validateForm();')
         echo form_open('zoonotic_data_administration/save_edit_facility/'.$facilityID.'/'.$districtID.'/'.$districtName, $attributes);
     }
 ?>
-<div>
-    <table border="0" class="data-table" style="margin:0 auto">
-            <tr>
-                    <th class="subsection-title" colspan="2">Facility Details</th>
-            </tr>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Facility Details
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+        	
+    
             <tbody>
                 <?php if($task == 1){
                 echo "<tr'>
@@ -252,5 +261,12 @@ $attributes = array('id' => 'facilityData','onsubmit'=>'return validateForm();')
                     </tr>
             </tbody>
     </table>
-</div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    
+
 <?php echo form_close();?>

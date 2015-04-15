@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Elnino_Districts extends MY_Controller {
 
     //required
@@ -23,7 +26,7 @@ class Elnino_Districts extends MY_Controller {
         $data['banner_text'] = "Elnino Reports";
         $data['link'] = "reports_management";
 
-        $this -> load -> view('template', $data);
+        $this -> load -> view('template_v', $data);
     }
 
     public function dave() {
@@ -51,7 +54,7 @@ class Elnino_Districts extends MY_Controller {
         $data['banner_text'] = "Elnino Reports";
         $data['link'] = "reports_management";
 
-        $this -> load -> view('template', $data);
+        $this -> load -> view('template_v', $data);
     }
 
 }

@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 
 class Zoonotic_Data_Report extends MY_Controller {
 
@@ -239,7 +241,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
 
@@ -732,7 +734,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
         
     }
@@ -935,7 +937,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
     
@@ -1001,7 +1003,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
     
@@ -1158,7 +1160,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
     
@@ -1337,7 +1339,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("public_template", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
     /*This method create a view for public consumption only
@@ -2170,7 +2172,7 @@ class Zoonotic_Data_Report extends MY_Controller {
             $data['res_view'] = "zoonotic_resources_v";
             $this->load->view("Livestock_Testing", $data);
         }else{
-            $this->load->view("template", $data);
+            $this->load->view("template_v", $data);
         }
     }
 

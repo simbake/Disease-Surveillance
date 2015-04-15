@@ -18,7 +18,7 @@ $(function() {
 			changeMonth : true,
 			dateFormat: 'dd-mm-yy'
 	});
-	var chart = new FusionCharts("<?php echo base_url()."Scripts/FusionCharts/Charts/MSLine.swf"?>", "daily_trend", "970", "600", "0", "0");
+	var chart = new FusionCharts("<?php echo base_url()."assets/Scripts/FusionCharts/Charts/MSLine.swf"?>", "daily_trend", "970", "600", "0", "0");
 	var url = '<?php echo base_url()."submissions_management/getTrend/0"?>'; 
 	chart.setDataURL(url);
 	chart.render("activity_graph");
@@ -27,7 +27,7 @@ $(function() {
 				var date_to = $("#to").attr("value"); 
 				var disease = $("#disease").attr("value");
 				var year = $("#year").attr("value");  
-				var chart = new FusionCharts("<?php echo base_url()."Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "900", "600", "0", "0");	
+				var chart = new FusionCharts("<?php echo base_url()."assets/Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "900", "600", "0", "0");	
 				var url = '<?php echo base_url()?>submissions_management/getTrend/'+disease+'/'+date_from+'/'+date_to+'/'+year+'';
 				console.log(url); 
 				chart.setDataURL(url);

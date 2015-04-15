@@ -1,7 +1,21 @@
-<table class="data-table" style="margin: 5px auto">
-			<caption>
-			Data Deletion Logs
-		</caption>
+<script>
+	$(document).ready(function() {
+    $('#deletion_table').DataTable();
+} );
+    </script>
+
+
+		 	<div class="container-fluid">
+	<div class="row">	 		
+          <div class="col-lg-12">
+<div class="panel panel-primary">
+				<div class="panel-heading">
+				Data Deletion Logs
+				</div>
+
+ <div class="panel-body ">
+         <table id="deletion_table" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%">
+
 	<tr>
 		<th>Deleted By</th>
 		<th>Facility Record Affected</th>
@@ -31,9 +45,9 @@ $log_counter++;
 }?>
 </table>
 
-<?php if (isset($pagination)):
-?>
-<div style="width:450px; margin:0 auto 60px auto">
-	<?php echo $pagination;?>
 </div>
-<?php endif;?>
+</div>
+</div>
+</div>
+</div>
+

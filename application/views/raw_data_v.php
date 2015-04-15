@@ -36,11 +36,25 @@ $earliest_year = $current_year - 5;
 
 
 </style>
-<div id="filter">
+
+
+
 	<?php
 	$attributes = array("method"=>"POST");
 	echo form_open('raw_data/export',$attributes);
 	?>
+	<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Raw Data
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
 		<fieldset>
 			<legend>
 				Select Filter Options
@@ -85,4 +99,11 @@ for($x=53;$x>=1;$x--){
 			
 		</fieldset>
 	</form>
-</div>
+	</table>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+

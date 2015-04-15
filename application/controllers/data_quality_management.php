@@ -16,7 +16,7 @@ class Data_Quality_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Data Quality";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

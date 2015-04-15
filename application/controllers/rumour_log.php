@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Rumour_Log extends MY_Controller {
 
 	function __construct() {
@@ -76,6 +79,6 @@ class Rumour_Log extends MY_Controller {
 		$data['content_view'] = "rumour_view";
 		$data['banner_text'] = "Rumour Data";		
 		$data['quick_link'] = "rumour_log";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 	}

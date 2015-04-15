@@ -1,5 +1,8 @@
 <?php
 
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Facility_Management extends MY_Controller {
 	function __construct() {
 		parent::__construct();
@@ -10,24 +13,12 @@ class Facility_Management extends MY_Controller {
 		$this -> whole_list();
 	}
 
-	public function whole_list($offset = 0) {
-		$items_per_page = 20;
-		$number_of_facilities = Facilities::getTotalNumber();
-		$facilities = Facilities::getPagedFacilities($offset, $items_per_page);
-		if ($number_of_facilities > $items_per_page) {
-			$config['base_url'] = base_url() . "facility_management/whole_list/";
-			$config['total_rows'] = $number_of_facilities;
-			$config['per_page'] = $items_per_page;
-			$config['uri_segment'] = 3;
-			$config['num_links'] = 5;
-			$this -> pagination -> initialize($config);
-			$data['pagination'] = $this -> pagination -> create_links();
-		}
+	public function whole_list() {
+		$facilities = Facilities::getPagedFacilities();
 		$data['facilities'] = $facilities;
 		$data['banner_text'] = "All Facilities";
 		$data['title'] = "Facility Management::All Facilities";
 		$data['module_view'] = "view_facilities_view";
-		$data['styles'] = array("pagination.css");
 		$this -> new_base_params($data);
 	}
 
@@ -66,7 +57,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "My Facilities";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function view_list() {
@@ -95,7 +86,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Add Facility";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function search_facility() {
@@ -118,7 +109,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Add Facility";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 	public function facility_search() {
@@ -150,7 +141,7 @@ class Facility_Management extends MY_Controller {
 		$data['scripts'] = array("jquery-ui.js", "tab.js");
 		$data['styles'] = array("jquery-ui.css", "tab.css");
 
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 
@@ -158,7 +149,7 @@ class Facility_Management extends MY_Controller {
 		$data['content_view'] = "admin_view";
 		$data['quick_link'] = "facility_management";
 		$data['link'] = "system_administration";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 

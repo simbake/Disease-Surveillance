@@ -100,10 +100,19 @@ if ($result == 2) {?>
         echo form_open('zoonotic_data_administration/save_lab_edit/'.$labID, $attributes);
     }
 ?>
-<table border="0" class="data-table" style="margin:0 auto; margin-bottom: 40px">
-	<tr>
-		<th class="subsection-title" colspan="2">Lab Details</th>
-	</tr>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Lab Details
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+        	
 	<tbody>
 		<tr>
 			<td><span>*</span> Lab Name</td>
@@ -271,4 +280,10 @@ if ($result == 2) {?>
 		</tr>
 	</tbody>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 <?php echo form_close();?>

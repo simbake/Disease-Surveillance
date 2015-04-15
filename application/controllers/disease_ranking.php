@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class Disease_Ranking extends MY_Controller {
 
 	//required
@@ -25,7 +27,7 @@ class Disease_Ranking extends MY_Controller {
 			$data['content_view'] = "admin_view"; 
 		$data['banner_text'] = "Disease Ranking";
 		$data['link'] = "admin_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
  
 

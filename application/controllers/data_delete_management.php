@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class Data_Delete_Management extends MY_Controller {
 	function __construct() {
 		parent::__construct();
@@ -31,7 +33,7 @@ class Data_Delete_Management extends MY_Controller {
 		$data['content_view'] = "data_quality_v";
 		$data['banner_text'] = "Facility Reports";
 		$data['link'] = "data_quality_management";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 }

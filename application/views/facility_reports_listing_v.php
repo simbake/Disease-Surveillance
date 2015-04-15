@@ -1,7 +1,16 @@
-<table class="data-table" style="margin: 5px auto">
-			<caption>
-			<?php echo $small_title;?>
-		</caption>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					<?php echo $small_title;?>
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+
 	<tr>
 		<th>Reporting Facility</th>
 		<th>Reported By</th>
@@ -33,3 +42,9 @@ $deleting_link = base_url()."weekly_data_management/delete_weekly_data/".$epiwee
 $report_counter++;
 }?>
 </table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

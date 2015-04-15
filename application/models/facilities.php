@@ -80,11 +80,11 @@ class Facilities extends Doctrine_Record {
 		return $count;
 	}
 
-	public function getPagedFacilities($offset, $items, $district = 0) {
+	public function getPagedFacilities($district = 0) {
 		if ($district == 0) {
-			$query = Doctrine_Query::create() -> select("*") -> from("Facilities") -> orderBy("name asc") -> offset($offset) -> limit($items);
+			$query = Doctrine_Query::create() -> select("*") -> from("Facilities") -> orderBy("name asc");
 		} else if ($district > 0) {
-			$query = Doctrine_Query::create() -> select("*") -> from("Facilities") -> where("district = '$district'") -> orderBy("name") -> offset($offset) -> limit($items);
+			$query = Doctrine_Query::create() -> select("*") -> from("Facilities") -> where("district = '$district'") -> orderBy("name");
 		}
 
 		$facilities = $query -> execute();

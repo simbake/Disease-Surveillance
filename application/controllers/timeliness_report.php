@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Timeliness_Report extends MY_Controller {
 
 	//required
@@ -13,6 +16,7 @@ class Timeliness_Report extends MY_Controller {
 	public function show_interface() {
 		$data = array();
 		$data['report_view'] = "timeliness_report_v";
+		
 		$this -> base_params($data);
 	}
 
@@ -67,10 +71,11 @@ class Timeliness_Report extends MY_Controller {
 		$data['title'] = "System Reports";
 
 		$data['content_view'] = "reports_v";
+		
 		$data['banner_text'] = "Intra-District Reporting";
 		$data['link'] = "reports_management";
 
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 }

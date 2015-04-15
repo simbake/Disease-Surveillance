@@ -1,5 +1,8 @@
 <?php
 ini_set('error_reporting','1');
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Weekly_Data_Management extends MY_Controller {
 
 	function __construct() {
@@ -46,7 +49,7 @@ class Weekly_Data_Management extends MY_Controller {
 			$data['banner_text'] = "Weekly Data";
 			$data['link'] = "submissions_management";
 			$data['quick_link'] = "weekly_data_management";
-			$this -> load -> view("template", $data);
+			$this -> load -> view("template_v", $data);
 		}
 	}
 
@@ -68,7 +71,7 @@ class Weekly_Data_Management extends MY_Controller {
 			$data['banner_text'] = "Weekly Data";
 			$data['link'] = "submissions_management";
 			$data['quick_link'] = "weekly_data_management";
-			$this -> load -> view("template", $data);
+			$this -> load -> view("template_v", $data);
 		}
 
 	}
@@ -79,7 +82,7 @@ class Weekly_Data_Management extends MY_Controller {
 		$data['content_view'] = "delete_facility_weekly_data_v";
 		$data['banner_text'] = "Delete Data";
 		$data['link'] = "submissions_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	public function corrupt_data($epiweek, $reporting_year, $facility) {
@@ -87,7 +90,7 @@ class Weekly_Data_Management extends MY_Controller {
 		$data['title'] = "Data Corruption";
 		$data['content_view'] = "data_inconsistency_v";
 		$data['banner_text'] = "Corrupt Data";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	public function confirm_delete_weekly_data($epiweek, $reporting_year, $facility) {
@@ -407,7 +410,7 @@ class Weekly_Data_Management extends MY_Controller {
 		$data['banner_text'] = "Weekly Data";
 		$data['link'] = "submissions_management";
 		$data['quick_link'] = "weekly_data_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }//end class

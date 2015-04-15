@@ -36,15 +36,22 @@ $earliest_year = $current_year - 5;
 
 
 </style>
-<div id="filter">
+
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Select Filter Options
+				</div>
+
 	<?php
 	$attributes = array("method" => "POST");
 	echo form_open('disease_ranking/get_list', $attributes);
 	?>
 	<fieldset>
-		<legend>
-			Select Filter Options
-		</legend>
+		
 		<label for="epiweek">Disease</label>
 		<select
 		name="disease">
@@ -80,4 +87,9 @@ for($x=1;$x<=53;$x++){
 		<input type="submit" name="surveillance" class="button"	value="View List of Reports" />
 	</fieldset>
 	</form>  
+	
 	</div>
+	</div>
+	</div>
+	</div>
+	

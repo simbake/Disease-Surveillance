@@ -1,16 +1,29 @@
-<div id="sub_menu">
+<!-- <div id="sub_menu">
 <a href="<?php echo  site_url("district_management/add");?>" class="top_menu_link sub_menu_link first_link <?php if($quick_link == "vaccine_management"){echo "top_menu_active";}?>">New District</a>  
  
-</div>
-<?php if (isset($pagination)):
-?>
-<div style="width:450px; margin:0 auto 60px auto">
-	<?php echo $pagination;?>
-</div>
-<?php endif;?>
-<table border="0" class="data-table" style="margin: 5px auto">
-	<th class="subsection-title" colspan="11">Districts</th>
-	<tr>
+</div> -->
+<script>
+$(document).ready( function () {
+    $('#district_table').dataTable();
+} );
+    </script>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					Districts
+				</div>
+
+ <div class="panel-body">
+ 	<div class="table-responsive">
+       <table id="district_table" class="display table table-striped table-bordered table-hover" cellspacing="0"  width="100%"> 
+	
+		<thead>
+			<tr><a href="<?php echo  site_url("district_management/add");?>" class="btn btn-primary pull-left">New District</a></tr>
+			<br/><br/><br/>
+		<tr>
 		<th>Name</th>
 		<th>County</th>
 		<th>Region</th>		
@@ -20,6 +33,9 @@
 		<th>Records</th>
 		<th>Action</th>
 	</tr>
+					</thead>
+					
+							<tbody>
 	<?php
 foreach($districts as $district){
 	?>
@@ -35,19 +51,21 @@ foreach($districts as $district){
 			};
 		?></td>
 		<td><?php echo count($district -> Surveillance);?></td>
-		<td><a href="<?php echo base_url()."district_management/edit_district/".$district->id?>" class="link">Edit </a>| <?php
+		<td><a href="<?php echo base_url()."district_management/edit_district/".$district->id?>" class='label label-primary'><span class="glyphicon glyphicon-refresh"></span> Edit </a>| <?php
 if($district->Disabled == 0){
 		?>
-		<a class="link" style="color:red" href="<?php echo base_url()."district_management/change_availability/".$district->id."/1"?>">Disable</a><?php }
+		<a  href="<?php echo base_url()."district_management/change_availability/".$district->id."/1"?>" class='label label-danger'><span class='glyphicon glyphicon-off'></span> Disable</a><?php }
 			else{
 		?>
-		<a class="link" style="color:green" href="<?php echo base_url()."district_management/change_availability/".$district->id."/0"?>">Enable</a><?php }?></td>
+		<a  href="<?php echo base_url()."district_management/change_availability/".$district->id."/0"?>" class='label label-info'><span class='glyphicon glyphicon-off'></span> Enable</a><?php }?></td>
 	</tr>
 	<?php }?>
+	</tbody>
 </table>
-<?php if (isset($pagination)):
-?>
-<div style="width:450px; margin:0 auto 60px auto">
-	<?php echo $pagination;?>
 </div>
-<?php endif;?>
+</div>
+</div>
+</div>
+</div>
+</div>
+

@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class DNR_Districts extends MY_Controller {
 
 	//required
@@ -39,7 +41,7 @@ class DNR_Districts extends MY_Controller {
 		$data['banner_text'] = "'DNR' Districts";
 		$data['link'] = "reports_management";
 
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 	}
 
 }

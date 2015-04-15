@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class Analyses_Management extends MY_Controller {
 	function __construct() {
 		parent::__construct();
@@ -16,7 +18,7 @@ class Analyses_Management extends MY_Controller {
 		$data['diseases'] = Disease::getAll();
 		$data['banner_text'] = "Data Analyses";
 		$data['link'] = "analyses_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

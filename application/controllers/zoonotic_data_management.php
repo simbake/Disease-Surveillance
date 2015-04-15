@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Zoonotic_Data_Management extends MY_Controller {
 
 	function __construct() {
@@ -15,7 +18,7 @@ class Zoonotic_Data_Management extends MY_Controller {
 		$data['banner_text'] = "Zoonotic Data";
 		$data['link'] = "submissions_management";
 		$data['quick_link'] = "zoonotic_data_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

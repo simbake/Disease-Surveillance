@@ -1,4 +1,7 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
+
 class Map_Display extends MY_Controller {
 	function __construct() {
 		parent::__construct();
@@ -44,7 +47,7 @@ class Map_Display extends MY_Controller {
 		$data['scripts'] = array("markerclusterer/src/markerclusterer.js", "markerclusterer/src/jsapi.js");
 		$data['banner_text'] = "Country Map View";
 		$data['link'] = "map_display";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 }

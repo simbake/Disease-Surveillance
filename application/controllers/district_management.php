@@ -94,7 +94,7 @@ class District_Management extends MY_Controller {
 		$data['link'] = "admin_management";
 		$data['content_view'] = "admin_view";
 		$data['banner_text'] = "Districts Listing";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 

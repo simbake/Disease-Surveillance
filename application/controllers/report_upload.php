@@ -1,4 +1,6 @@
 <?php
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 
 class Report_Upload extends MY_Controller {
 
@@ -21,7 +23,7 @@ class Report_Upload extends MY_Controller {
 		$data['banner_text'] = "Report Upload";
 		$data['quick_link'] = "report_upload";
 		$data['link'] = "admin_management";
-		$this -> load -> view("template", $data);
+		$this -> load -> view("template_v", $data);
 	}
 
 	public function upload_file() {

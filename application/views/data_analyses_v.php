@@ -1,6 +1,6 @@
 <script>
 $(function() {
-		var chart = new FusionCharts("<?php echo base_url()."Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "850", "450", "0", "0");
+		var chart = new FusionCharts("<?php echo base_url()."assets/Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "850", "450", "0", "0");
 		var url = '<?php echo base_url()."district_analysis_graph/get_cummulative_graph"?>'; 
 		chart.setDataURL(url);
 		chart.render("immunization_graph_container");
@@ -43,7 +43,7 @@ $(function() {
 				var selected_type = $("#filter_type").find(":selected").attr("value");
 				var start_epiweek = $("#epiweek_from").find(":selected").attr("value");
 				var end_epiweek = $("#epiweek_to").find(":selected").attr("value");
-				var chart = new FusionCharts("<?php echo base_url()."Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "850", "450", "0", "0");	
+				var chart = new FusionCharts("<?php echo base_url()."assets/Scripts/FusionCharts/Charts/MSLine.swf"?>", "ChartId", "850", "450", "0", "0");	
 				var url = '<?php echo base_url();?>district_analysis_graph/get_cummulative_graph/'+selected_year+'/'+vaccine_string+'/'+selected_district+'/'+selected_facility+'/'+selected_type+'/'+start_epiweek+'/'+end_epiweek; 
 				chart.setDataURL(url);
 				chart.render("immunization_graph_container");
@@ -51,51 +51,26 @@ $(function() {
 });
 		
 </script>
-<style>
-	#center_content {
-		height: 1000px;
-	}
-	#mos_legend {
-		width: 400px;
-		height: 10px;
-	}
-	.graph {
-		width: 460px;
-		float: left;
-		margin: 10px;
-	}
-	#graph_content {
-		width: 100%;
-		margin: 0 auto; 
-	}
-	.larger_graph {
-		float: right;
-	}
-	.larger_graph_container {
-		width: 950px;
-		height: 500px;
-	}
-	.legend_content {
-		width: 100%;
-		overflow: hidden;
-		margin-top: 5px;
-	} 
-	#graph_filter,#immunization_graph_container {
-		width: 980px;
-		margin: 0 auto;
-		overflow: hidden;
-	}
-	#filter_facility{
-		width:200px;
-	}
 
+<script>
+	$(document).ready(function() {
+    $('#analytics_table').DataTable();
+} );
+    </script>
+    
+<br/><br/>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-primary">
+				<div class="panel-heading">
+					Filter Diseases
+				</div>
 
-</style>
-<div id="graph_content">
-	<div id="graph_filter">
-		<b>Disease(s)</b>
-		</br>
-		<table class="data-table"> 
+ <div class="panel-body ">
+ 
+        <table  style="margin-left: 0;" id="analytics_table" class="table table-striped table-bordered table-hover" width="100%">
 			<tr>
 			<?php 
 				$counter = 0;
@@ -110,10 +85,17 @@ $(function() {
 				 $counter++; 
 				}
 			?>
+			
 			</tr>
-		</table>
-		<br/>
+			
+		<br/><br/>
+	
+			<tr>
+				
+
+
 		<b>District:</b>
+		
 		<select id="filter_district" style="width: 110px;">
 			<option value="0">All Districts</option>
 			<?php 
@@ -157,6 +139,7 @@ for($x=0;$x<=53;$x++){
 $counter = 0;
 for($x=53;$x>=0;$x--){
 			?>
+			
 			<option <?php
 			if ($counter == 0) {echo "selected";
 			}
@@ -166,6 +149,7 @@ for($x=53;$x>=0;$x--){
 			}
 			?>
 		</select>
+		
 <b>Year:</b>
 		<select id="filter_year">
 			<?php
@@ -182,8 +166,32 @@ for($x=0;$x<=10;$x++){
 			$year--;
 			}
 			?>
+			
 		</select>
-		<input type="button" id="filter_graph" value="Filter Graph" class="button"/>
-	</div>
+		
+		<input type="button" id="filter_graph" value="Filter Graph" class="btn "/>
+	<br/><br/><br/>
+	</tr>
+	
+		</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+	
+	
+	<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-success">
+				<div class="panel-heading">
+					Immunization Graph
+				</div>
 	<div id = "immunization_graph_container"></div>
+</div>
+</div>
 </div>

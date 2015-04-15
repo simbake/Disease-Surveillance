@@ -1,5 +1,6 @@
 <?php
-
+if (!defined('BASEPATH'))
+	exit('No direct script access allowed');
 class County_Management extends MY_Controller {
 	function __construct() {
 
@@ -11,20 +12,9 @@ class County_Management extends MY_Controller {
 		$this -> view_list();
 	}
 
-	public function view_list($offset = 0) {
-		$items_per_page = 15;
-		$number_of_counties = County::getTotalNumber();
-		$counties = County::getPagedCounties($offset, $items_per_page);
-		if ($number_of_counties > $items_per_page) {
-			$config['base_url'] = base_url() . "county_management/view_list/";
-			$config['total_rows'] = $number_of_counties;
-			$config['per_page'] = $items_per_page;
-			$config['uri_segment'] = 3;
-			$config['num_links'] = 5;
-			$this -> pagination -> initialize($config);
-			$data['pagination'] = $this -> pagination -> create_links();
-		}
-
+	public function view_list() {
+		
+		$counties = County::getPagedCounties();
 		$data['counties'] = $counties;
 		$data['title'] = "County Management::All My Counties";
 		$data['module_view'] = "view_counties_view";
@@ -84,13 +74,13 @@ class County_Management extends MY_Controller {
 	}
 
 	private function base_params($data) {
-		$data['scripts'] = array("jquery-ui.js", "tab.js");
-		$data['styles'] = array("jquery-ui.css", "tab.css", "pagination.css");
+		// $data['scripts'] = array("jquery-ui.js", "tab.js");
+		// $data['styles'] = array("jquery-ui.css", "tab.css", "pagination.css");
 		$data['quick_link'] = "county_management";
 		$data['link'] = "admin_management";
 		$data['content_view'] = "admin_view";
 		$data['banner_text'] = "Counties Listing";
-		$this -> load -> view('template', $data);
+		$this -> load -> view('template_v', $data);
 
 	}
 

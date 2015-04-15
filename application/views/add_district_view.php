@@ -22,10 +22,19 @@ echo validation_errors('
 ');
 ?>
 <input type="hidden" name="district_id" value = "<?php echo $district_id; ?>"/>
-<table border="0" class="data-table" style="margin: 5px auto">
-	<tr>
-		<th class="subsection-title" colspan="2">District Details</th>
-	</tr>
+<div class="row">
+		 	<div class="container-fluid">
+		 		
+          <div class="col-lg-12">
+<div class="panel panel-default">
+				<div class="panel-heading">
+					District Details
+				</div>
+
+ <div class="panel-body ">
+ 	   <div class="table-responsive">
+        <table  style="margin-left: 0;" id="dataTables-example" class="table table-striped table-bordered table-hover" width="100%">
+
 	<tbody>
 		<tr>
 			<td><span class="mandatory">*</span> District Name</td>
@@ -85,9 +94,15 @@ foreach($provinces as $province){
 		<tr>
 		<td align="center" colspan=2>
 		<input name="submit" type="submit"
-		class="button" value="Save District">
+		class="btn btn-primary" value="Save District">
 		</td>
 	</tr>
 	</tbody>
-</table>  
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>  
 <?php echo form_close();?>
